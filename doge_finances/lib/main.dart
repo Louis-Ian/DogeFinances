@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:doge_finances/colors.dart';
+import 'package:doge_finances/theme/colors.dart';
 
 void main() {
   runApp(MyApp());
@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
           shape: RoundedRectangleBorder(borderRadius:
             BorderRadius.all(Radius.circular(10)),
           ),
-          backgroundColor: dogeLilac.withOpacity(0.8),
+          backgroundColor: dogeIce.withOpacity(0.8),
         ),
       ),
     );
