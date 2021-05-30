@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:doge_finances/theme/colors.dart';
 import 'package:doge_finances/constants.dart';
 import 'package:doge_finances/components/widgets/accountInfoWidget.dart';
+import 'package:flutter/rendering.dart';
 
 class Homescreen extends StatefulWidget {
   @override
@@ -20,27 +21,52 @@ class _HomescreenState extends State<Homescreen> {
               0, 0, defaultPadding, 2 * defaultPadding),
           child: AddTransactionButton()),
       body: SafeArea(
-        child: Column(
+        child: ListView(
           children: [
-            SizedBox(
-              height: 200,
-              child: Container(
-                color: Color.fromRGBO(255, 255, 255, 0.1),
-              ),
+            Column(
+              children: [
+                SizedBox(
+                  height: 200,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(2*defaultPadding, 2*defaultPadding, 2*defaultPadding, 0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: dogeCloudy.withOpacity(0.8),
+                        borderRadius: BorderRadius.all(Radius.circular(defaultRadius))
+                      ),
+                    ),
+                  ),
+                ),
+                GridView.builder(
+                  padding: const EdgeInsets.all(2*defaultPadding),
+                  shrinkWrap: true,
+                  itemCount: 3,
+                  physics: NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: largePadding,
+                    mainAxisSpacing: largePadding,
+                    childAspectRatio: 160/90,
+                  ),
+                  itemBuilder: (context, index) => AccountInfo(),
+                ),
+                Container(
+                  height: 1000,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(2*defaultRadius)),
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        dogeLilac.withOpacity(1.0),
+                        dogeLilac.withOpacity(0.7)
+                      ]
+                    )
+                  ),
+                )
+              ],
             ),
-            GridView.builder(
-              padding: const EdgeInsets.all(2*defaultPadding),
-              shrinkWrap: true,
-              itemCount: 3,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: largePadding,
-                mainAxisSpacing: largePadding,
-                childAspectRatio: 160/90,
-              ),
-              itemBuilder: (context, index) => AccountInfo(),
-            ),
-          ],
+          ]
         ),
       ),
     );
