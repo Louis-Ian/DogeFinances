@@ -1,6 +1,9 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
+//TODO: implement HSV color generator that doesn't generates two similar colors
 class RandomBrightColor{
   Color generate(){
     var color69 = new Random()

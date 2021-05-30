@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import 'package:doge_finances/constants.dart';
 import 'package:doge_finances/utils/RandomBrightColor.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +29,28 @@ class _AccountInfoState extends State<AccountInfo> {
         ),
         primary: _selected ? _accountColor.withOpacity(0.2) : _accountColor.withOpacity(1),
       ),
-      child: Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Conta 1",
+            textAlign: TextAlign.left,
+            style: GoogleFonts.montserrat(
+              fontSize: 16,
+              color: _selected ? Colors.black.withOpacity(0.3) : Colors.black.withOpacity(1),
+            ),
+          ),
+          Text(
+            "R\$ 400,00",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.montserrat(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: _selected ? Colors.white.withOpacity(0.3) : Colors.white.withOpacity(1),
+            ),
+          )
+        ],
       ),
     );
   }
