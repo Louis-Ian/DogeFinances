@@ -22,15 +22,21 @@ class _HomescreenState extends State<Homescreen> {
       body: SafeArea(
         child: Column(
           children: [
+            SizedBox(
+              height: 200,
+              child: Container(
+                color: Color.fromRGBO(255, 255, 255, 0.1),
+              ),
+            ),
             GridView.builder(
-              padding: const EdgeInsets.all(defaultPadding),
+              padding: const EdgeInsets.all(2*defaultPadding),
               shrinkWrap: true,
               itemCount: 3,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                crossAxisSpacing: defaultPadding,
-                mainAxisSpacing: defaultPadding,
-                childAspectRatio: 16/9,
+                crossAxisSpacing: largePadding,
+                mainAxisSpacing: largePadding,
+                childAspectRatio: 160/90,
               ),
               itemBuilder: (context, index) => AccountInfo(),
             ),
