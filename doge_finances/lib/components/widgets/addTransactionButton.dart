@@ -20,7 +20,7 @@ class _AddTransactionButtonState extends State<AddTransactionButton> {
       },
       child: Icon(
         CupertinoIcons.arrow_up_arrow_down,
-        color: dogeWhite.withOpacity(0.9),
+        color: dogeMidnight.withOpacity(0.9),
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(defaultRadius)),
