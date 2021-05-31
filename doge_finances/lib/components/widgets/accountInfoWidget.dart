@@ -31,7 +31,7 @@ class _AccountInfoState extends State<AccountInfo> {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
             "Conta 1",
@@ -43,7 +43,7 @@ class _AccountInfoState extends State<AccountInfo> {
           ),
           Text(
             "R\$ 400,00",
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.left,
             style: GoogleFonts.montserrat(
               fontSize: 22,
               fontWeight: FontWeight.bold,

@@ -56,10 +56,10 @@ class _HomescreenState extends State<Homescreen> {
                     borderRadius: BorderRadius.all(Radius.circular(2*defaultRadius)),
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
+                      end: Alignment.bottomCenter,
                       colors: [
-                        dogeLilac.withOpacity(1.0),
-                        dogeLilac.withOpacity(0.7)
+                        dogeCloudy.withOpacity(1.0),
+                        dogeCloudy.withOpacity(0.4)
                       ]
                     )
                   ),
