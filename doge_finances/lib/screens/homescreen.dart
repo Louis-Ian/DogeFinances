@@ -1,4 +1,4 @@
-import 'package:doge_finances/components/widgets/addTransactionButton.dart';
+import 'package:doge_finances/components/widgets/addPaymentButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:doge_finances/theme/colors.dart';
@@ -17,9 +17,8 @@ class _HomescreenState extends State<Homescreen> {
     return Scaffold(
       backgroundColor: dogeMidnight,
       floatingActionButton: Padding(
-          padding: const EdgeInsets.fromLTRB(
-              0, 0, defaultPadding, 2 * defaultPadding),
-          child: AddTransactionButton()),
+          padding: const EdgeInsets.fromLTRB(0, 0, defaultPadding, 2 * defaultPadding),
+          child: AddPaymentButton()),
       body: SafeArea(
         child: ListView(
           children: [

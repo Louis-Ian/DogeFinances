@@ -4,14 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:doge_finances/theme/colors.dart';
 import '../../constants.dart';
 
-class AddTransactionButton extends StatefulWidget {
-  // const AddTransactionButton({Key key}) : super(key: key);
+class AddPaymentButton extends StatefulWidget {
+  // const AddPaymentButton({Key key}) : super(key: key);
 
   @override
-  _AddTransactionButtonState createState() => _AddTransactionButtonState();
+  _AddPaymentButtonState createState() => _AddPaymentButtonState();
 }
 
-class _AddTransactionButtonState extends State<AddTransactionButton> {
+class _AddPaymentButtonState extends State<AddPaymentButton> {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(

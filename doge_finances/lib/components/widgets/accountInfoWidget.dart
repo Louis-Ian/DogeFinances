@@ -5,7 +5,9 @@ import 'package:doge_finances/utils/RandomBrightColor.dart';
 import 'package:flutter/material.dart';
 
 class AccountInfo extends StatefulWidget {
-  // const AccountInfo({Key key}) : super(key: key);
+  // AccountInfo(id) {
+  //
+  // }
 
   @override
   _AccountInfoState createState() => _AccountInfoState();
