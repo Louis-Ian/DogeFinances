@@ -1,10 +1,12 @@
 import 'package:doge_finances/components/widgets/addPaymentButton.dart';
+import 'package:doge_finances/components/widgets/transactionItem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:doge_finances/theme/colors.dart';
 import 'package:doge_finances/constants.dart';
 import 'package:doge_finances/components/widgets/accountInfoWidget.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Homescreen extends StatefulWidget {
   @override
@@ -51,8 +53,17 @@ class _HomescreenState extends State<Homescreen> {
                 ),
                 Container(
                   height: 1000,
+                  padding: EdgeInsets.only(
+                    top: largePadding,
+                    bottom: largePadding,
+                    left: 3*defaultPadding,
+                    right: 3*defaultPadding,
+                  ),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(2*defaultRadius)),
+                    borderRadius: new BorderRadius.only(
+                      topLeft: const Radius.circular(2*defaultPadding),
+                      topRight: const Radius.circular(2*defaultPadding),
+                    ),
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomCenter,
@@ -62,6 +73,35 @@ class _HomescreenState extends State<Homescreen> {
                       ]
                     )
                   ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Transações",
+                        textAlign: TextAlign.left,
+                        style: GoogleFonts.montserrat(
+                          fontSize: 24,
+                          color: dogeIce,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, defaultPadding, 0 , defaultPadding),
+                        child: TransactionItem(),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, defaultPadding, 0 , defaultPadding),
+                        child: TransactionItem(),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, defaultPadding, 0 , defaultPadding),
+                        child: TransactionItem(),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, defaultPadding, 0 , defaultPadding),
+                        child: TransactionItem(),
+                      ),
+                    ],
+                  )
                 )
               ],
             ),
