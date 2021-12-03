@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Dart
+name: Main-workflow
 
 on:
   push:
@@ -19,45 +19,7 @@ jobs:
     #     working-directory: doge_finances
 
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      
-      - uses: actions/checkout@v2
-      
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
-      
-      # Note: This workflow uses the latest stable version of the Dart SDK.
-      # You can specify other versions if desired, see documentation here:
-      # https://github.com/dart-lang/setup-dart/blob/main/README.md
-      # - uses: dart-lang/setup-dart@v1
-      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
-
-      - name: Install dependencies
-        run: dart pub get
-        working-directory: doge_finances
-
-      # Uncomment this step to verify the use of 'dart format' on each commit.
-      # - name: Verify formatting
-      #   run: dart format --output=none --set-exit-if-changed .
-
-      # Consider passing '--fatal-infos' for slightly stricter analysis.
-      - name: Analyze project source
-        run: dart analyze
-        working-directory: doge_finances
-
-      # Your project will need to have tests in test/ and a dependency on
-      # package:test for this step to succeed. Note that Flutter projects will
-      # want to change this to 'flutter test'.
-      - name: Run tests
-        run: dart test
-        working-directory: doge_finances
-      
+      - uses: actions/checkout@v2      
       - name: Flutter action
         # You may pin to the exact commit or the version.
         # uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
@@ -67,3 +29,6 @@ jobs:
           # flutter-version: # optional
           # The Flutter build release channel
           # channel: # optional, default is stable
+      - run: flutter pub get
+      - run: flutter test
+      - run: flutter build apk
