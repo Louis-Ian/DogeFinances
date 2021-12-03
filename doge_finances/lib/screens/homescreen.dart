@@ -33,8 +33,9 @@ class _HomescreenState extends State<Homescreen> {
                     child: Container(
                       decoration: BoxDecoration(
                         color: dogeCloudy.withOpacity(0.8),
-                        borderRadius: BorderRadius.all(Radius.circular(defaultRadius))
+                        borderRadius: BorderRadius.all(Radius.circular(defaultRadius)),
                       ),
+                      child: BalanceComponent(),
                     ),
                   ),
                 ),
