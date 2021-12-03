@@ -1,4 +1,5 @@
 import 'package:doge_finances/components/widgets/addPaymentButton.dart';
+import 'package:doge_finances/components/widgets/balanceComponent.dart';
 import 'package:doge_finances/components/widgets/transactionItem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
