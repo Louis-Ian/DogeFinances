@@ -18,7 +18,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Doge Finances',
-      home: Loginscreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Loginscreen(),
+        '/home': (context) => Homescreen(),
+      },
     );
   }
 }

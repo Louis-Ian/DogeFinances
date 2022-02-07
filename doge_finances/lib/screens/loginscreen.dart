@@ -38,7 +38,7 @@ class _LoginscreenState extends State<Loginscreen> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(defaultPadding),
                       child: Image.asset(
-                        "lib/assets/icons/Logo.png",
+                        "lib/assets/icons/logo.png",
                       ),
                     ),
                   ),
