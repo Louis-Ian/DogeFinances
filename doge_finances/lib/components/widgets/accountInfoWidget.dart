@@ -1,8 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:doge_finances/constants.dart';
 import 'package:doge_finances/utils/RandomBrightColor.dart';
-import 'package:flutter/material.dart';
 
 class AccountInfo extends StatefulWidget {
   // AccountInfo(id) {
