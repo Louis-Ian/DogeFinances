@@ -11,7 +11,7 @@ class AuthenticationService {
     await _firebaseAuth.signOut();
   }
 
-  Future<String?> signIn(String email, String password) async {
+  Future<String?> signInWithEmailAndPassword(String email, String password) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
       return "signed in";
@@ -20,7 +20,7 @@ class AuthenticationService {
     }
   }
 
-  Future<String?> signUp(String email, String password) async {
+  Future<String?> signUpWithEmailAndPassword(String email, String password) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
       return "signed up";

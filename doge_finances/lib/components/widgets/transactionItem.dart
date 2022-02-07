@@ -37,7 +37,7 @@ class _TransactionItemState extends State<TransactionItem> {
                     Text(
                       "Coquinha",
                       textAlign: TextAlign.left,
-                      style: GoogleFonts.montserrat(
+                      style: GoogleFonts.inter(
                         fontSize: 18,
                         color: dogeIce,
                       ),
@@ -45,7 +45,7 @@ class _TransactionItemState extends State<TransactionItem> {
                     Text(
                       "Conta 1",
                       textAlign: TextAlign.left,
-                      style: GoogleFonts.montserrat(
+                      style: GoogleFonts.inter(
                         fontSize: 18,
                         color: dogeLilac,
                       ),
@@ -60,7 +60,7 @@ class _TransactionItemState extends State<TransactionItem> {
                 Text(
                   "R\$ 3,80",
                   textAlign: TextAlign.left,
-                  style: GoogleFonts.montserrat(
+                  style: GoogleFonts.inter(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
                     color: Colors.red,
@@ -69,7 +69,7 @@ class _TransactionItemState extends State<TransactionItem> {
                 Text(
                   "396,20",
                   textAlign: TextAlign.left,
-                  style: GoogleFonts.montserrat(
+                  style: GoogleFonts.inter(
                     fontSize: 14,
                     color: dogeWhite,
                   ),

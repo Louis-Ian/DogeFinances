@@ -80,7 +80,7 @@ class _HomescreenState extends State<Homescreen> {
                     children: [
                       Text("Transações",
                         textAlign: TextAlign.left,
-                        style: GoogleFonts.montserrat(
+                        style: GoogleFonts.inter(
                           fontSize: 24,
                           color: dogeIce,
                         ),

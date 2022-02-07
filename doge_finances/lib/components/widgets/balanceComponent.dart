@@ -25,7 +25,7 @@ class _BalanceComponentState extends State<BalanceComponent> {
             Text(
               "Balanço Total",
               textAlign: TextAlign.center,
-              style: GoogleFonts.montserrat(
+              style: GoogleFonts.inter(
                 fontSize: 16,
                 color: dogeIce.withOpacity(0.9),
               ),
@@ -37,7 +37,7 @@ class _BalanceComponentState extends State<BalanceComponent> {
                 Text(
                   "R\$ 2,100.00",
                   textAlign: TextAlign.right,
-                  style: GoogleFonts.montserrat(
+                  style: GoogleFonts.inter(
                     fontSize: 36,
                     color: dogeWhite,
                     fontWeight: FontWeight.w700,

@@ -37,7 +37,7 @@ class _AccountInfoState extends State<AccountInfo> {
           Text(
             "Conta 1",
             textAlign: TextAlign.left,
-            style: GoogleFonts.montserrat(
+            style: GoogleFonts.inter(
               fontSize: 16,
               color: _selected ? Colors.black.withOpacity(0.3) : Colors.black.withOpacity(1),
             ),
@@ -45,7 +45,7 @@ class _AccountInfoState extends State<AccountInfo> {
           Text(
             "R\$ 400,00",
             textAlign: TextAlign.left,
-            style: GoogleFonts.montserrat(
+            style: GoogleFonts.inter(
               fontSize: 22,
               fontWeight: FontWeight.bold,
               color: _selected ? Colors.white.withOpacity(0.3) : Colors.white.withOpacity(1),
