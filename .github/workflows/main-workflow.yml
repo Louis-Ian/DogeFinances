@@ -3,12 +3,10 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Main-workflow
+name: Release APK
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
     branches: [ main ]
 
 jobs:
@@ -21,8 +19,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2      
       - name: Flutter action
-        # You may pin to the exact commit or the version.
-        # uses: subosito/flutter-action@4389e6cbc6cb8a4b18c628ff96ff90be0e926aa8
         uses: subosito/flutter-action@v1.5.3
         # with:
           # The Flutter version to make available on the path
@@ -31,7 +27,33 @@ jobs:
           # channel: # optional, default is stable
       - run: flutter pub get
         working-directory: doge_finances
+
       # - run: flutter test
       #   working-directory: doge_finances
+
+      # Build APK
       - run: flutter build apk
         working-directory: doge_finances
+      
+      # Upload generated apk to the artifacts.
+      - uses: actions/upload-artifact@v1
+        with:
+          name: release-apk
+          path: build/app/outputs/apk/release/app-release.apk
+      
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - Added Registration with email and password
+            - Added Registration with google account
+            - Added Login with email and password
+            - Added Login with google account
+          draft: false
+          prerelease: true
