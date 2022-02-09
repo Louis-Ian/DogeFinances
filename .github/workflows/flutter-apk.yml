@@ -34,6 +34,10 @@ jobs:
         env:
           FIREBASE_OPTIONS: ${{secrets.FIREBASE_OPTIONS}}
         run: echo "$FIREBASE_OPTIONS" > doge_finances/lib/firebase_options.dart
+      - name: Decode key properties
+        env:
+          KEY_PROPERTIES: ${{secrets.KEY_PROPERTIES}}
+        run: echo "$KEY_PROPERTIES" > doge_finances/android/key.properties
       - run: flutter pub get
         working-directory: doge_finances
 
