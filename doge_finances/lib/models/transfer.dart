@@ -16,7 +16,7 @@ class Transfer {
   num id;
   double value;
   Account originAccountID;
-  Account? destinationAccountID;  // If destination account is null, then it's a simple payment
+  Account? destinationAccountID;  // If destination account is null, then it's an expense (not a transfer)
   String description;
   DateTime date;
 

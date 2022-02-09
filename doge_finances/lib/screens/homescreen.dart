@@ -1,12 +1,12 @@
-import 'package:doge_finances/components/widgets/addPaymentButton.dart';
-import 'package:doge_finances/components/widgets/balanceComponent.dart';
-import 'package:doge_finances/components/widgets/transactionItem.dart';
 import 'package:flutter/material.dart';
-import 'package:doge_finances/theme/colors.dart';
-import 'package:doge_finances/constants.dart';
-import 'package:doge_finances/components/widgets/accountInfoWidget.dart';
-import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../components/widgets/accountInfoWidget.dart';
+import '../components/widgets/addPaymentButton.dart';
+import '../components/widgets/balanceComponent.dart';
+import '../components/widgets/transactionItem.dart';
+import '../theme/colors.dart';
+import '../constants.dart';
 
 class Homescreen extends StatefulWidget {
   @override
@@ -26,6 +26,9 @@ class _HomescreenState extends State<Homescreen> {
           children: [
             Column(
               children: [
+                Container(
+                  height: 60,
+                ),
                 SizedBox(
                   height: 200,
                   child: Padding(

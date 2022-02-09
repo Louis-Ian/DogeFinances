@@ -1,32 +1,40 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:doge_finances/models/user.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 class AuthenticationService {
-  final FirebaseAuth _firebaseAuth;
+  final auth.FirebaseAuth _firebaseAuth = auth.FirebaseAuth.instance;
 
-  AuthenticationService(this._firebaseAuth);
+  User? _userFromFirebase(auth.User? user){
+    if(user == null){
+      return null;
+    } else {
+      return User(user.uid, user.email);
+    }
+  }
 
-  Stream<User?> get authStateChange => _firebaseAuth.authStateChanges();
+  Stream<User?>? get user {
+    return _firebaseAuth.authStateChanges().map(_userFromFirebase);
+  }
+
+  Future<User?> signInWithEmailAndPassword(String email, String password) async {
+    try {
+      final credential = await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
+      return _userFromFirebase(credential.user);
+    } on auth.FirebaseAuthException catch(e) {
+      // return e.message;
+    }
+  }
+
+  Future<User?> createUserWithEmailAndPassword(String email, String password) async {
+    try {
+      final credential = await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+      return _userFromFirebase(credential.user);
+    } on auth.FirebaseAuthException catch(e) {
+      // return e.message;
+    }
+  }
 
   Future<void> signOut() async {
     await _firebaseAuth.signOut();
   }
-
-  Future<String?> signInWithEmailAndPassword(String email, String password) async {
-    try {
-      await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
-      return "signed in";
-    } on FirebaseAuthException catch(e) {
-      return e.message;
-    }
-  }
-
-  Future<String?> signUpWithEmailAndPassword(String email, String password) async {
-    try {
-      await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
-      return "signed up";
-    } on FirebaseAuthException catch(e) {
-      return e.message;
-    }
-  }
-
 }

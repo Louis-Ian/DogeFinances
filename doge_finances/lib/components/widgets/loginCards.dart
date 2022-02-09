@@ -1,11 +1,15 @@
 import 'package:doge_finances/constants.dart';
+import 'package:doge_finances/services/authenticationService.dart';
 import 'package:doge_finances/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class LoginCards extends StatefulWidget {
+
   const LoginCards({Key? key}) : super(key: key);
+
 
   @override
   _LoginCardsState createState() => _LoginCardsState();
@@ -13,14 +17,19 @@ class LoginCards extends StatefulWidget {
 
 class _LoginCardsState extends State<LoginCards> {
 
-
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailTextController = TextEditingController();
+    final TextEditingController passwordTextController = TextEditingController();
+
+    final authService = Provider.of<AuthenticationService>(context);
+
     return Column(
       children: [
         Padding(
           padding: const EdgeInsets.only(bottom: defaultPadding),
           child: TextField(
+            controller: emailTextController,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderSide: const BorderSide(color: dogeWhite, width: 2.0),
@@ -51,6 +60,7 @@ class _LoginCardsState extends State<LoginCards> {
         Padding(
           padding: const EdgeInsets.only(bottom: defaultPadding),
           child: TextField(
+            controller: passwordTextController,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderSide: const BorderSide(color: dogeWhite, width: 2.0),
@@ -82,7 +92,9 @@ class _LoginCardsState extends State<LoginCards> {
           width: 280,
           height: 36,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              authService.signInWithEmailAndPassword(emailTextController.text, passwordTextController.text);
+            },
             style: ElevatedButton.styleFrom(
               primary: dogeLilac,
               shape: new RoundedRectangleBorder(
@@ -105,12 +117,13 @@ class _LoginCardsState extends State<LoginCards> {
         SizedBox(
           width: 280,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Padding(
                 padding: const EdgeInsets.only(bottom: defaultPadding),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: dogeWhite,
                     shape: new RoundedRectangleBorder(
@@ -128,48 +141,48 @@ class _LoginCardsState extends State<LoginCards> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: defaultPadding),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    primary: dogeWhite,
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(defaultRadius)),
-                    ),
-                  ),
-                  child: Container(
-                    height: 48,
-                    width: 30,
-                    child: Icon(
-                      FontAwesomeIcons.github,
-                      color: dogeMidnight,
-                      size: 30,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: defaultPadding),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    primary: dogeWhite,
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(defaultRadius)),
-                    ),
-                  ),
-                  child: Container(
-                    height: 48,
-                    width: 30,
-                    child: Icon(
-                      FontAwesomeIcons.facebook,
-                      color: dogeMidnight,
-                      size: 30,
-                    ),
-                  ),
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.only(bottom: defaultPadding),
+              //   child: ElevatedButton(
+              //     onPressed: () {},
+              //     style: ElevatedButton.styleFrom(
+              //       primary: dogeWhite,
+              //       shape: new RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.all(Radius.circular(defaultRadius)),
+              //       ),
+              //     ),
+              //     child: Container(
+              //       height: 48,
+              //       width: 30,
+              //       child: Icon(
+              //         FontAwesomeIcons.github,
+              //         color: dogeMidnight,
+              //         size: 30,
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.only(bottom: defaultPadding),
+              //   child: ElevatedButton(
+              //     onPressed: () {},
+              //     style: ElevatedButton.styleFrom(
+              //       primary: dogeWhite,
+              //       shape: new RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.all(Radius.circular(defaultRadius)),
+              //       ),
+              //     ),
+              //     child: Container(
+              //       height: 48,
+              //       width: 30,
+              //       child: Icon(
+              //         FontAwesomeIcons.facebook,
+              //         color: dogeMidnight,
+              //         size: 30,
+              //       ),
+              //     ),
+              //   ),
+              // ),
               Padding(
                 padding: const EdgeInsets.only(bottom: defaultPadding),
                 child: ElevatedButton(
