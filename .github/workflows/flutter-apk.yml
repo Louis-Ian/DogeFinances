@@ -25,10 +25,14 @@ jobs:
           # flutter-version: # optional
           # The Flutter build release channel
           # channel: # optional, default is stable
+      - name: Create file google service
+        run: cat doge_finances/app/google-services.json | base64
       - name: Decode google-services.json
         env:
           GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
         run: echo $GOOGLE_SERVICES_JSON > doge_finances/app/google-services.json
+      - name: Create file firebase properties
+        run: cat doge_finances/lib/firebase_options.dart | base64
       - name: Decode firebase properties
         env:
           FIREBASE_OPTIONS: ${{ secrets.FIREBASE_OPTIONS }}
