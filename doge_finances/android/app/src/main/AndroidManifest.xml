@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hawkstudio.doge_finances">
    <application
-        android:label="doge_finances"
+        android:label="Doge Finances"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:exported="true"
@@ -39,4 +39,6 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
