@@ -26,12 +26,12 @@ jobs:
           # The Flutter build release channel
           # channel: # optional, default is stable
 
+      - name: WAI
+        run: ls -la
       - uses: "finnp/create-file-action@master"
         env:
           FILE_NAME: "doge_finances/app/google-services.json"
           FILE_DATA: ${{secrets.GOOGLE_SERVICES_JSON}}
-      # - name: Create file google service
-      #   run: cat > /home/runner/work/DogeFinances/DogeFinances/doge_finances/app/google-services.json | base64
       - name: Decode google-services.json
         env:
           GOOGLE_SERVICES_JSON: ${{secrets.GOOGLE_SERVICES_JSON}}
