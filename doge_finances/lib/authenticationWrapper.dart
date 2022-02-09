@@ -1,5 +1,5 @@
-import 'package:doge_finances/screens/homescreen.dart';
-import 'package:doge_finances/screens/loginscreen.dart';
+import 'package:doge_finances/screens/homeScreen.dart';
+import 'package:doge_finances/screens/loginScreen.dart';
 import 'package:doge_finances/services/authenticationService.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:doge_finances/theme/colors.dart';
-import 'package:doge_finances/constants.dart';
 import 'package:provider/provider.dart';
 
 class UserIcon extends StatelessWidget {

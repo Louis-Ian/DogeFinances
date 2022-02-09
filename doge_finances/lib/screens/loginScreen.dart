@@ -1,12 +1,7 @@
-import 'package:doge_finances/components/widgets/loginCards.dart';
-import 'package:doge_finances/screens/homescreen.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import 'package:doge_finances/firebase_options.dart';
-
 import 'package:flutter/material.dart';
+
+import 'package:doge_finances/components/loginComponent.dart';
+
 import 'package:doge_finances/theme/colors.dart';
 import 'package:doge_finances/constants.dart';
 
@@ -18,10 +13,6 @@ class Loginscreen extends StatefulWidget {
 }
 
 class _LoginscreenState extends State<Loginscreen> {
-  final TextEditingController emailTextController = TextEditingController();
-  final TextEditingController passwordTextController = TextEditingController();
-
-  FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +53,7 @@ class _LoginscreenState extends State<Loginscreen> {
                         SizedBox(
                           height: 20,
                         ),
-                        LoginCards(),
+                        LoginComponent(),
                       ],
                     ),
                   ),

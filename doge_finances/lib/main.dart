@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:doge_finances/screens/homescreen.dart';
-import 'package:doge_finances/screens/loginscreen.dart';
+import 'package:doge_finances/screens/homeScreen.dart';
+import 'package:doge_finances/screens/loginScreen.dart';
+import 'package:doge_finances/screens/signupScreen.dart';
 
 import 'package:doge_finances/authenticationWrapper.dart';
 import 'package:doge_finances/services/authenticationService.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
           '/': (context) => AuthenticationWrapper(),
           '/login': (context) => Loginscreen(),
           '/home': (context) => Homescreen(),
+          '/signup': (context) => Signupscreen(),
         },
       ),
     );
