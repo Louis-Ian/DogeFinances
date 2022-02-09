@@ -101,8 +101,8 @@ class _SignupComponentState extends State<SignupComponent> {
           width: 280,
           height: 36,
           child: ElevatedButton(
-              onPressed: () {
-                authService.signInWithEmailAndPassword(
+              onPressed: () async {
+                await authService.createUserWithEmailAndPassword(
                     emailTextController.text, passwordTextController.text);
               },
               style: ElevatedButton.styleFrom(
