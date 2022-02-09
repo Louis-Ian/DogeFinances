@@ -17,7 +17,7 @@ jobs:
     #     working-directory: doge_finances
 
     steps:
-      - uses: actions/checkout@v2      
+      - uses: actions/checkout@v2
       - name: Flutter action
         uses: subosito/flutter-action@v1.5.3
         # with:
@@ -25,6 +25,14 @@ jobs:
           # flutter-version: # optional
           # The Flutter build release channel
           # channel: # optional, default is stable
+      - name: Decode google-services.json
+        env:
+          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+          run: echo $GOOGLE_SERVICES_JSON > doge_finances/app/google-services.json
+      - name: Decode firebase properties
+        env:
+          GOOGLE_SERVICES_JSON: ${{ secrets.FIREBASE_OPTIONS }}
+          run: echo $FIREBASE_OPTIONS > doge_finances/lib/firebase_options.dart
       - run: flutter pub get
         working-directory: doge_finances
 
