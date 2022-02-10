@@ -1,0 +1,64 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Test PR submitted
+
+on:
+  push:
+    branches:
+      - development
+  pull_request:
+    branches:
+      - development
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    # defaults:
+    #   run:
+    #     working-directory: doge_finances
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Flutter action
+        uses: subosito/flutter-action@v2.3.0
+        # with:
+          # The Flutter version to make available on the path
+          # flutter-version: # optional
+          # The Flutter build release channel
+          # channel: # optional, default is stable
+
+      - name: Decode firebase properties
+        run: echo "${{secrets.FIREBASE_OPTIONS}}" > doge_finances/lib/firebase_options.dart
+      - name: Decode key properties
+        run: echo "${{secrets.KEY_PROD}}" > doge_finances/android/key.properties
+      - name: Decode Keystore
+        id: decode_keystore
+        uses: timheuer/base64-to-file@v1.1
+        with:
+          fileName: 'upload-keystore.jks'
+          fileDir: 'doge_finances/android/'
+          encodedString: ${{secrets.KEYJKS_PROD}}
+
+      - name: Restore packages
+        run: flutter pub get
+        working-directory: doge_finances
+
+      - name: Analyze
+        run: flutter analyze --no-fatal-infos --no-fatal-warnings
+        working-directory: doge_finances
+
+      - name: Run tests
+        run: flutter test --coverage
+        working-directory: doge_finances
+      
+      - name: Upload coverage to codecov
+        run: curl -s https://codecov.io/bash
+        shell: bash
+
+      - uses: actions-ecosystem/action-get-latest-tag@v1
+        id: get-latest-tag
+        if: ${{ steps.release-label.outputs.level != null }}
+      
