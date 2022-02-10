@@ -34,9 +34,13 @@ jobs:
         id: decode_keystore
         uses: timheuer/base64-to-file@v1
         with:
-          fileName: 'doge_finances/android/upload-keystore.jks'
+          fileName: 'upload-keystore.jks'
+          fileDir: 'doge_finances/android/'
           encodedString: ${{secrets.KEYJKS_PROD}}
       
+      - name: check keystore
+        run: ls -la doge_finances/android/
+
       - run: flutter pub get
         working-directory: doge_finances
 
