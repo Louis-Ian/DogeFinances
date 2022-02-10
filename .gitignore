@@ -2,3 +2,5 @@
 /.vscode/
 doge_finances/lib/firebase_options.dart
 doge_finances/android/app/google-services.json
+doge_finances/android/upload-keystore.jks
+doge_finances/signing_keystore_base64_encoded.txt
