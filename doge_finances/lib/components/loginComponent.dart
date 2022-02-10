@@ -59,6 +59,9 @@ class _LoginComponentState extends State<LoginComponent> {
           padding: const EdgeInsets.only(bottom: defaultPadding),
           child: TextField(
             controller: passwordTextController,
+            obscureText: true,
+            enableSuggestions: false,
+            autocorrect: false,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderSide: const BorderSide(color: dogeWhite, width: 2.0),
@@ -215,33 +218,35 @@ class _LoginComponentState extends State<LoginComponent> {
             ],
           ),
         ),
-        SizedBox(
-          height: 2 * defaultPadding,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Text(
-              "Don't have an account yet?  ",
-              style: GoogleFonts.inter(
-                fontSize: 18,
-                color: dogeWhite,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/signup');
-              },
-              child: Text(
-                "Sign Up",
-                style: GoogleFonts.inter(
-                  fontSize: 18,
-                  color: dogeWhite,
-                  fontWeight: FontWeight.w700,
-                  decoration: TextDecoration.underline,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Don't have an account yet?  ",
+                  style: GoogleFonts.inter(
+                    fontSize: 18,
+                    color: dogeWhite,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/signup');
+                  },
+                  child: Text(
+                    "Sign Up",
+                    style: GoogleFonts.inter(
+                      fontSize: 18,
+                      color: dogeWhite,
+                      fontWeight: FontWeight.w700,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         )

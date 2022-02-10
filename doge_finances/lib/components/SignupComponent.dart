@@ -70,6 +70,9 @@ class _SignupComponentState extends State<SignupComponent> {
           padding: const EdgeInsets.only(bottom: defaultPadding),
           child: TextField(
             controller: passwordTextController,
+            obscureText: true,
+            enableSuggestions: false,
+            autocorrect: false,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderSide: const BorderSide(color: dogeWhite, width: 2.0),
