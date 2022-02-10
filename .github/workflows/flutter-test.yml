@@ -3,14 +3,18 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Release APK
+name: Test PR submitted
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - development
+  pull_request:
+    branches:
+      - development
 
 jobs:
-  build:
+  tests:
     runs-on: ubuntu-latest
     # defaults:
     #   run:
@@ -37,37 +41,24 @@ jobs:
           fileName: 'upload-keystore.jks'
           fileDir: 'doge_finances/android/'
           encodedString: ${{secrets.KEYJKS_PROD}}
-      
-      - name: check keystore
-        run: ls -la doge_finances/android/
 
-      - run: flutter pub get
+      - name: Restore packages
+        run: flutter pub get
         working-directory: doge_finances
 
-      # - run: flutter test
-      #   working-directory: doge_finances
+      - name: Analyze
+        run: flutter analyze
+        working-directory: doge_finances
 
-      # Build APK
-      - run: flutter build apk
+      - name: Run tests
+        run: flutter test --coverage
         working-directory: doge_finances
       
+      - name: Upload coverage to codecov
+        run: curl -s https://codecov.io/bash
+        shell: bash
+
       - uses: actions-ecosystem/action-get-latest-tag@v1
         id: get-latest-tag
         if: ${{ steps.release-label.outputs.level != null }}
       
-      - name: Create Release
-        uses: ncipollo/release-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          artifacts: doge_finances/build/app/outputs/flutter-apk/app-release.apk
-          name: Release ${{ steps.get-latest-tag.outputs.tag }}
-          tag: v0.1.0
-          body: |
-            Changes in this Release
-            - Added Registration with email and password
-            - Added Registration with google account
-            - Added Login with email and password
-            - Added Login with google account
-          draft: false
-          prerelease: true
