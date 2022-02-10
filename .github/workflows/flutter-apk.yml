@@ -32,7 +32,7 @@ jobs:
         run: echo "${{secrets.KEY_PROD}}" > doge_finances/android/key.properties
       - name: Decode Keystore
         id: decode_keystore
-        uses: timheuer/base64-to-file@v1
+        uses: timheuer/base64-to-file@v1.1
         with:
           fileName: 'upload-keystore.jks'
           fileDir: 'doge_finances/android/'
