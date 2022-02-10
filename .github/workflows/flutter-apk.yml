@@ -62,7 +62,6 @@ jobs:
         if: ${{ steps.release-label.outputs.level != null }}
       
       - name: Create Release
-        needs: release-apk
         id: create_release
         uses: actions/create-release@v2
         env:
