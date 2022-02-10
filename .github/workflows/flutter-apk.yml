@@ -51,24 +51,17 @@ jobs:
       - run: flutter build apk
         working-directory: doge_finances
       
-      # Upload generated apk to the artifacts.
-      - uses: actions/upload-artifact@v2
-        with:
-          name: release-apk
-          path: doge_finances/build/app/outputs/flutter-apk/app-release.apk
-      
       - uses: actions-ecosystem/action-get-latest-tag@v1
         id: get-latest-tag
         if: ${{ steps.release-label.outputs.level != null }}
       
       - name: Create Release
-        needs: release-apk
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          artifacts: release-apk
+          artifacts: doge_finances/build/app/outputs/flutter-apk/app-release.apk
           name: Release ${{ steps.get-latest-tag.output.tag }}
           body: |
             Changes in this Release
