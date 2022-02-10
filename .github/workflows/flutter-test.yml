@@ -47,7 +47,7 @@ jobs:
         working-directory: doge_finances
 
       - name: Analyze
-        run: flutter analyze
+        run: flutter analyze --no-fatal-infos --no-fatal-warnings
         working-directory: doge_finances
 
       - name: Run tests
