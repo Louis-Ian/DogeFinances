@@ -55,7 +55,7 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: release-apk
-          path: doge_finances/build/app/outputs/flutter-apk/release/app-release.apk
+          path: doge_finances/build/app/outputs/flutter-apk/app-release.apk
       
       - name: Create Release
         id: create_release
