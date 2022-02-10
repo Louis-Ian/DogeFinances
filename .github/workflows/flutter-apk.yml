@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Flutter action
-        uses: subosito/flutter-action@v1.5.3
+          uses: subosito/flutter-action@v2.3.0
         # with:
           # The Flutter version to make available on the path
           # flutter-version: # optional
@@ -61,7 +61,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
           artifacts: doge_finances/build/app/outputs/flutter-apk/app-release.apk
-          name: Release ${{ steps.get-latest-tag.output.tag }}
+          name: Release ${{ steps.get-latest-tag.outputs.tag }}
           tag: v0.1.0
           body: |
             Changes in this Release
