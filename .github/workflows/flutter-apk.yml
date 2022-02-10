@@ -26,8 +26,6 @@ jobs:
           # The Flutter build release channel
           # channel: # optional, default is stable
 
-      - name: Decode google-services.json
-        run: echo "${{secrets.GOOGLE_SERVICES_JSON}}" > doge_finances/android/app/google-services.json
       - name: Decode firebase properties
         run: echo "${{secrets.FIREBASE_OPTIONS}}" > doge_finances/lib/firebase_options.dart
       - name: Decode key properties
