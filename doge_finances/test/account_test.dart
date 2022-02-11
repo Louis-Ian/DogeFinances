@@ -34,9 +34,9 @@ void main() {
     test("New deposit", () {
       final account = Account.empty(acc_color);
 
-      account.addPayment(Transfer(20, account, null, "test deposit", DateTime(2022, 1, 15)));
+      Transfer(20, account, null, "test deposit", DateTime(2022, 1, 15));
 
-      expect(account.balance, 20);
+      expect(account.balance, -20);
       expect(account.payments.last.value, 20);
       expect(account.payments.last.originAccountID, account);
       expect(account.payments.last.description, "test deposit");
