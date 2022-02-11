@@ -54,9 +54,10 @@ jobs:
         run: flutter test --coverage
         working-directory: doge_finances
       
-      - name: Upload coverage to codecov
-        run: curl -s https://codecov.io/bash
-        shell: bash
+      - name: Upload code coverage to Codecov
+        uses: codecov/codecov-action@v2.1.0
+        with:
+          files: doge_finances/coverage/lcov.info
 
       - uses: actions-ecosystem/action-get-latest-tag@v1
         id: get-latest-tag
