@@ -55,8 +55,8 @@ jobs:
         working-directory: doge_finances
       
       - name: Upload coverage to codecov
-        run: curl -s https://codecov.io/bash
-        shell: bash
+        uses: codecov/codecov-action@v2
+          file: doge_finances/coverage/lcov.info
 
       - uses: actions-ecosystem/action-get-latest-tag@v1
         id: get-latest-tag
