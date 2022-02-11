@@ -12,7 +12,7 @@ class AccountFields {
 class Account {
   static num _id = 0;
   final num id;
-  final double _balance;
+  double _balance;
   final Color color;
   List<Transfer> _payments;
 
@@ -42,6 +42,12 @@ class Account {
 
   void addPayment(Transfer payment) {
     _payments.add(payment);
+
+    if(payment.destinationAccountID != null){
+      payment.destinationAccountID?._balance += payment.value;
+    }
+
+    this._balance -= payment.value;
   }
 
   void removePayment(Transfer payment) {
