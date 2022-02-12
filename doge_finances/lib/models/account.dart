@@ -41,16 +41,35 @@ class Account {
   double get balance => _balance;
 
   void addPayment(Transfer payment) {
-    _payments.add(payment);
+    if (this == payment.originAccountID) {
+      _payments.add(payment);
 
-    if(payment.destinationAccountID != null){
-      payment.destinationAccountID?._balance += payment.value;
+      if (payment.destinationAccountID != null) {
+        payment.destinationAccountID!.addPayment(payment);
+      }
+
+      this._balance -= payment.value;
+    } else if (this == payment.destinationAccountID) {
+      _payments.add(payment);
+
+      this._balance += payment.value;
     }
-
-    this._balance -= payment.value;
   }
 
-  void removePayment(Transfer payment) {
-    _payments.removeWhere((t) => t.id == payment.id);
+  void removePayment(num id) {
+    Transfer payment = payments.lastWhere((element) => element.id == id);
+    if (this == payment.originAccountID) {
+      if (payment.destinationAccountID != null) {
+        payment.destinationAccountID!.removePayment(id);
+      }
+
+      _payments.removeWhere((element) => element.id == payment.id);
+      this._balance += payment.value;
+
+    } else if (this == payment.destinationAccountID) {
+      _payments.removeWhere((element) => element.id == payment.id);
+
+      this._balance -= payment.value;
+    }
   }
 }

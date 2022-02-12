@@ -22,6 +22,5 @@ class Transfer {
 
   Transfer(this.value, this.originAccountID, this.destinationAccountID, this.description, this.date) : id = _id{
     _id++;
-    originAccountID.addPayment(this);
   }
 }
