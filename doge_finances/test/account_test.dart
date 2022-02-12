@@ -95,24 +95,37 @@ void main() {
     });
 
     test('Remove payment', () {
-      double accBalance = 200;
       final accountOrig = Account.empty(accColor);
-      Transfer testPayment = Transfer(30, accountOrig, null, 'test deposit', DateTime(2022, 4, 28));
+      final accountDest = Account.empty(accColor);
+      Transfer testPayment = Transfer(30, accountOrig, accountDest, 'test deposit', DateTime(2022, 4, 28));
 
       accountOrig.addPayment(testPayment);
 
       expect(accountOrig.balance, -30);
       expect(accountOrig.payments.last.value, 30);
       expect(accountOrig.payments.last.originAccountID, accountOrig);
+      expect(accountOrig.payments.last.destinationAccountID, accountDest);
       expect(accountOrig.payments.last.description, 'test deposit');
       expect(accountOrig.payments.last.date.year, 2022);
       expect(accountOrig.payments.last.date.month, 4);
       expect(accountOrig.payments.last.date.day, 28);
 
+      expect(accountDest.balance, 30);
+      expect(accountDest.payments.last.value, 30);
+      expect(accountDest.payments.last.originAccountID, accountOrig);
+      expect(accountDest.payments.last.destinationAccountID, accountDest);
+      expect(accountDest.payments.last.description, 'test deposit');
+      expect(accountDest.payments.last.date.year, 2022);
+      expect(accountDest.payments.last.date.month, 4);
+      expect(accountDest.payments.last.date.day, 28);
+
       accountOrig.removePayment(testPayment.id);
 
       expect(accountOrig.balance, 0);
       expect(accountOrig.payments.length, 0);
+
+      expect(accountDest.balance, 0);
+      expect(accountDest.payments.length, 0);
     });
   });
 }
