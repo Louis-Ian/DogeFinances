@@ -5,44 +5,114 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:doge_finances/models/account.dart';
 
 void main() {
-  const acc_color = Colors.white;
+  const accColor = Colors.white;
 
-  group("Account", () {
-    test("Empty creation", () {
-      final account = Account.empty(acc_color);
+  group('Account', () {
+    test('Empty creation', () {
+      final account = Account.empty(accColor);
 
       expect(account.balance, 0);
-      expect(account.color, acc_color);
+      expect(account.color, accColor);
     });
 
-    test("Creation", () {
-      final account = Account(100, acc_color, List<Transfer>.empty());
+    test('Creation', () {
+      final account = Account(100, accColor, List<Transfer>.empty());
 
       expect(account.balance, 100);
-      expect(account.color, acc_color);
+      expect(account.color, accColor);
       expect(account.payments.length, 0);
     });
 
-    test("Multiple IDs", () {
-      final account1 = Account.empty(acc_color);
-      final account2 = Account.empty(acc_color);
+    test('Multiple IDs', () {
+      final account1 = Account.empty(accColor);
+      final account2 = Account.empty(accColor);
 
       expect(account1.id, 2);
       expect(account2.id, 3);
     });
 
-    test("New deposit", () {
-      final account = Account.empty(acc_color);
+    test('New deposit', () {
+      final account = Account.empty(accColor);
 
-      Transfer(20, account, null, "test deposit", DateTime(2022, 1, 15));
+      account.addPayment(Transfer(20, account, null, 'test expense', DateTime(2022, 1, 15)));
 
       expect(account.balance, -20);
       expect(account.payments.last.value, 20);
       expect(account.payments.last.originAccountID, account);
-      expect(account.payments.last.description, "test deposit");
+      expect(account.payments.last.description, 'test expense');
       expect(account.payments.last.date.year, 2022);
       expect(account.payments.last.date.month, 1);
       expect(account.payments.last.date.day, 15);
+    });
+
+    test('Mapping account', () {
+      double accBalance = 42;
+      List<Transfer> accTransfers = List<Transfer>.empty();
+      final account = Account(accBalance, accColor, accTransfers);
+
+      var expectedMap = {
+        'id': 5,
+        'balance': accBalance,
+        'color': accColor
+      };
+
+      expect(account.toMap(), expectedMap);
+    });
+
+    test('Print account', () {
+      double accBalance = -66.6;
+      List<Transfer> accTransfers = List<Transfer>.empty();
+      final account = Account(accBalance, accColor, accTransfers);
+
+      String expectedPrint = 'Account{id: 6, balance: $accBalance, color: $accColor}';
+
+      expect(account.toString(), expectedPrint);
+    });
+
+    test('New transfers', () {
+      final accountOrig = Account.empty(accColor);
+      final accountDest = Account.empty(accColor);
+
+      accountOrig.addPayment(Transfer(20, accountOrig, null, 'test transfer 1', DateTime(2022, 1, 15)));
+      accountOrig.addPayment(Transfer(30, accountOrig, accountDest, 'test transfer 2', DateTime(2022, 2, 16)));
+      accountOrig.addPayment(Transfer(40, accountOrig, accountDest, 'test transfer 3', DateTime(2022, 3, 17)));
+
+      expect(accountOrig.balance, -90);
+      expect(accountOrig.payments.last.value, 40);
+      expect(accountOrig.payments.last.originAccountID, accountOrig);
+      expect(accountOrig.payments.last.description, 'test transfer 3');
+      expect(accountOrig.payments.last.date.year, 2022);
+      expect(accountOrig.payments.last.date.month, 3);
+      expect(accountOrig.payments.last.date.day, 17);
+
+      expect(accountDest.balance, 70);
+      expect(accountDest.payments.last.value, 40);
+      expect(accountDest.payments.last.originAccountID, accountOrig);
+      expect(accountDest.payments.last.description, 'test transfer 3');
+      expect(accountDest.payments.last.date.year, 2022);
+      expect(accountDest.payments.last.date.month, 3);
+      expect(accountDest.payments.last.date.day, 17);
+    });
+
+    test('Remove payment', () {
+      double accBalance = 200;
+      final accountOrig = Account.empty(accColor);
+      Transfer testPayment = Transfer(30, accountOrig, null, 'test deposit', DateTime(2022, 4, 28));
+
+      accountOrig.addPayment(testPayment);
+
+      expect(accountOrig.balance, -30);
+      expect(accountOrig.payments.last.value, 30);
+      expect(accountOrig.payments.last.originAccountID, accountOrig);
+      expect(accountOrig.payments.last.description, 'test deposit');
+      expect(accountOrig.payments.last.date.year, 2022);
+      expect(accountOrig.payments.last.date.month, 4);
+      expect(accountOrig.payments.last.date.day, 28);
+
+      accountOrig.removePayment(testPayment.id);
+
+      expect(accountOrig.balance, 0);
+      expect(accountOrig.payments.length, 0);
     });
   });
 }
