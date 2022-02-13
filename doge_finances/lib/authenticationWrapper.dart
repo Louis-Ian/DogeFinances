@@ -3,8 +3,7 @@ import 'package:doge_finances/screens/loginScreen.dart';
 import 'package:doge_finances/services/authenticationService.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'models/user.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthenticationWrapper extends StatelessWidget {
 
