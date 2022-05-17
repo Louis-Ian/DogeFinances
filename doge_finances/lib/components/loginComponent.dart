@@ -93,25 +93,25 @@ class _LoginComponentState extends State<LoginComponent> {
           width: 280,
           height: 36,
           child: ElevatedButton(
-              onPressed: () {
-                authService.signInWithEmailAndPassword(
-                    emailTextController.text, passwordTextController.text);
-              },
-              style: ElevatedButton.styleFrom(
-                primary: dogeLilac,
-                shape: new RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.all(Radius.circular(defaultRadius)),
-                ),
+            onPressed: () {
+              authService.signInWithEmailAndPassword(
+                  emailTextController.text, passwordTextController.text);
+            },
+            style: ElevatedButton.styleFrom(
+              primary: dogeLilac,
+              shape: new RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(defaultRadius)),
               ),
-              child: Text(
-                "Login",
-                style: GoogleFonts.inter(
-                  fontSize: 20,
-                  color: dogeBlack,
-                  fontWeight: FontWeight.w400,
-                ),
-              )),
+            ),
+            child: Text(
+              "Login",
+              style: GoogleFonts.inter(
+                fontSize: 20,
+                color: dogeBlack,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
         ),
         SizedBox(
           height: 3 * defaultPadding,
@@ -218,35 +218,30 @@ class _LoginComponentState extends State<LoginComponent> {
             ],
           ),
         ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Don't have an account yet?  ",
-                  style: GoogleFonts.inter(
-                    fontSize: 18,
-                    color: dogeWhite,
-                    fontWeight: FontWeight.w500,
-                  ),
+            Text(
+              "Don't have an account yet?  ",
+              style: GoogleFonts.inter(
+                fontSize: 18,
+                color: dogeWhite,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/signup');
+              },
+              child: Text(
+                "Sign Up",
+                style: GoogleFonts.inter(
+                  fontSize: 18,
+                  color: dogeWhite,
+                  fontWeight: FontWeight.w700,
+                  decoration: TextDecoration.underline,
                 ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/signup');
-                  },
-                  child: Text(
-                    "Sign Up",
-                    style: GoogleFonts.inter(
-                      fontSize: 18,
-                      color: dogeWhite,
-                      fontWeight: FontWeight.w700,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
           ],
         )
