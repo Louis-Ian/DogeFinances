@@ -28,7 +28,7 @@ class _LoginscreenState extends State<Loginscreen> {
                 child: IntrinsicHeight(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
+                    children:  [
                       Expanded(
                         child: Center(
                           child: Container(
