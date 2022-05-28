@@ -1,11 +1,12 @@
-import 'package:doge_finances/screens/homeScreen.dart';
-import 'package:doge_finances/screens/loginScreen.dart';
+import 'package:doge_finances/screens/home_screen.dart';
+import 'package:doge_finances/screens/login_screen.dart';
 import 'package:doge_finances/services/authenticationService.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthenticationWrapper extends StatelessWidget {
+  const AuthenticationWrapper({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class AuthenticationWrapper extends StatelessWidget {
           final User? user = snapshot.data;
           return user == null ? Loginscreen() : Homescreen();
         } else {
-          return Scaffold(
+          return const Scaffold(
             body: Center(
               child: CircularProgressIndicator(),
             ),

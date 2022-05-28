@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:doge_finances/components/loginComponent.dart';
+import 'package:doge_finances/components/login_component.dart';
 
 import 'package:doge_finances/theme/colors.dart';
 import 'package:doge_finances/constants.dart';

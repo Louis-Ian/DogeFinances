@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:doge_finances/screens/homeScreen.dart';
-import 'package:doge_finances/screens/loginScreen.dart';
-import 'package:doge_finances/screens/signupScreen.dart';
+import 'package:doge_finances/screens/home_screen.dart';
+import 'package:doge_finances/screens/login_screen.dart';
+import 'package:doge_finances/screens/signup_screen.dart';
 
-import 'package:doge_finances/authenticationWrapper.dart';
+import 'package:doge_finances/authentication_wrapper.dart';
 import 'package:doge_finances/services/authenticationService.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -21,6 +21,8 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(

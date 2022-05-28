@@ -4,15 +4,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:doge_finances/constants.dart';
 import 'package:doge_finances/theme/colors.dart';
 
-import 'package:doge_finances/components/widgets/addPaymentButton.dart';
-import 'package:doge_finances/components/widgets/accountInfoWidget.dart';
-import 'package:doge_finances/components/widgets/balanceComponent.dart';
-import 'package:doge_finances/components/widgets/transactionItem.dart';
-import 'package:doge_finances/components/widgets/userIconWidget.dart';
+import 'package:doge_finances/components/widgets/add_payment_button.dart';
+import 'package:doge_finances/components/widgets/account_info_widget.dart';
+import 'package:doge_finances/components/widgets/balance_component.dart';
+import 'package:doge_finances/components/widgets/transaction_item.dart';
+import 'package:doge_finances/components/widgets/user_icon_widget.dart';
 
 
 
 class Homescreen extends StatefulWidget {
+  const Homescreen({Key? key}) : super(key: key);
+
   @override
   _HomescreenState createState() => _HomescreenState();
 }

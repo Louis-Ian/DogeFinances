@@ -4,6 +4,8 @@ import 'package:doge_finances/constants.dart';
 import 'package:doge_finances/utils/RandomBrightColor.dart';
 
 class AccountInfo extends StatefulWidget {
+  const AccountInfo({Key? key}) : super(key: key);
+
   // AccountInfo(id) {
   //
   // }
@@ -14,7 +16,7 @@ class AccountInfo extends StatefulWidget {
 
 class _AccountInfoState extends State<AccountInfo> {
   bool _selected = false;
-  Color _accountColor = RandomBrightColor().generate();
+  final Color _accountColor = RandomBrightColor().generate();
 
   @override
   Widget build(BuildContext context) {
