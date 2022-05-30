@@ -1,4 +1,4 @@
-import 'package:doge_finances/models/transfer.dart';
+import 'package:doge_finances/app/doge_finances/domain/entities/transfer.dart';
 import 'package:flutter/material.dart';
 
 final String accountsTable = "accounts";

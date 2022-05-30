@@ -4,15 +4,16 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 //TODO: implement HSV color generator that doesn't generates two similar colors
-class RandomBrightColor{
-  Color generate(){
-    var color69 = new Random()
+class RandomBrightColor {
+  Color generate() {
+    var color69 = Random()
         .nextInt(3); // Choose which field (R, G, or B) will have the 69 value
-    var color222 = new Random()
+    var color222 = Random()
         .nextBool(); // Choose which field the 2 fields that are left (the first or the second) will have the 222 value
-    var colorVal = 69 + new Random().nextInt(153); // Choose tha random value for the last field
+    var colorVal = 69 +
+        Random().nextInt(153); // Choose tha random value for the last field
 
-    var finalColor;
+    Color finalColor;
 
     if (color69 == 0) {
       if (color222) {

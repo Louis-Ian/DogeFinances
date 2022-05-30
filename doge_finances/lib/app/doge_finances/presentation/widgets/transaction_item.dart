@@ -1,5 +1,5 @@
-import 'package:doge_finances/constants.dart';
-import 'package:doge_finances/theme/colors.dart';
+import 'package:doge_finances/app/doge_finances/domain/entities/constants.dart';
+import 'package:doge_finances/app/doge_finances/domain/entities/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

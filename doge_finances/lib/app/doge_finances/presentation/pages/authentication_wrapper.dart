@@ -1,6 +1,6 @@
-import 'package:doge_finances/screens/home_screen.dart';
-import 'package:doge_finances/screens/login_screen.dart';
-import 'package:doge_finances/services/authenticationService.dart';
+import 'package:doge_finances/app/doge_finances/presentation/pages/home_screen.dart';
+import 'package:doge_finances/app/doge_finances/presentation/pages/login_screen.dart';
+import 'package:doge_finances/app/doge_finances/domain/repositories/authentication_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';

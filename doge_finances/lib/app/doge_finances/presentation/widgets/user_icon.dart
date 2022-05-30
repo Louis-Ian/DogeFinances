@@ -1,8 +1,8 @@
-import 'package:doge_finances/services/authenticationService.dart';
+import 'package:doge_finances/app/doge_finances/domain/repositories/authentication_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'package:doge_finances/theme/colors.dart';
+import 'package:doge_finances/app/doge_finances/domain/entities/colors.dart';
 import 'package:provider/provider.dart';
 
 class UserIcon extends StatelessWidget {

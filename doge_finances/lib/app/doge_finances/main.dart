@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:doge_finances/screens/home_screen.dart';
-import 'package:doge_finances/screens/login_screen.dart';
-import 'package:doge_finances/screens/signup_screen.dart';
+import 'package:doge_finances/app/doge_finances/presentation/pages/home_screen.dart';
+import 'package:doge_finances/app/doge_finances/presentation/pages/login_screen.dart';
+import 'package:doge_finances/app/doge_finances/presentation/pages/signup_screen.dart';
 
-import 'package:doge_finances/authentication_wrapper.dart';
-import 'package:doge_finances/services/authenticationService.dart';
+import 'package:doge_finances/app/doge_finances/presentation/pages/authentication_wrapper.dart';
+import 'package:doge_finances/app/doge_finances/domain/repositories/authentication_service.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:doge_finances/firebase_options.dart';
@@ -13,6 +13,7 @@ import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

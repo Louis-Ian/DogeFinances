@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'package:doge_finances/theme/colors.dart';
-import '../../constants.dart';
+import 'package:doge_finances/app/doge_finances/domain/entities/colors.dart';
+import '../../domain/entities/constants.dart';
 
 class AddPaymentButton extends StatefulWidget {
   // const AddPaymentButton({Key key}) : super(key: key);

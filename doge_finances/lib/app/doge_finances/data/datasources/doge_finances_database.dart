@@ -1,5 +1,5 @@
-import 'package:doge_finances/models/account.dart';
-import 'package:doge_finances/models/transfer.dart';
+import 'package:doge_finances/app/doge_finances/domain/entities/account.dart';
+import 'package:doge_finances/app/doge_finances/domain/entities/transfer.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 

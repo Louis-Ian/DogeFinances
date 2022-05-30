@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:doge_finances/components/login_component.dart';
+import 'package:doge_finances/app/doge_finances/presentation/widgets/login_component.dart';
 
-import 'package:doge_finances/theme/colors.dart';
-import 'package:doge_finances/constants.dart';
+import 'package:doge_finances/app/doge_finances/domain/entities/colors.dart';
+import 'package:doge_finances/app/doge_finances/domain/entities/constants.dart';
 
 class Loginscreen extends StatefulWidget {
   const Loginscreen({Key? key}) : super(key: key);

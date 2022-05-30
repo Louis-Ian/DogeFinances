@@ -1,29 +1,40 @@
-import 'package:doge_finances/constants.dart';
-import 'package:doge_finances/services/authenticationService.dart';
-import 'package:doge_finances/theme/colors.dart';
+import 'package:doge_finances/app/doge_finances/domain/entities/constants.dart';
+import 'package:doge_finances/app/doge_finances/domain/repositories/authentication_service.dart';
+import 'package:doge_finances/app/doge_finances/domain/entities/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class LoginComponent extends StatefulWidget {
-  const LoginComponent({Key? key}) : super(key: key);
+class SignupComponent extends StatefulWidget {
+  const SignupComponent({Key? key}) : super(key: key);
 
   @override
-  _LoginComponentState createState() => _LoginComponentState();
+  _SignupComponentState createState() => _SignupComponentState();
 }
 
-class _LoginComponentState extends State<LoginComponent> {
+class _SignupComponentState extends State<SignupComponent> {
   @override
   Widget build(BuildContext context) {
     final TextEditingController emailTextController = TextEditingController();
     final TextEditingController passwordTextController =
-        TextEditingController();
+    TextEditingController();
 
     final authService = Provider.of<AuthenticationService>(context);
 
     return Column(
       children: [
+        Text(
+          "Sign Up",
+          style: GoogleFonts.inter(
+            fontSize: 30,
+            color: dogeWhite,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        SizedBox(
+          height: 3 * defaultPadding,
+        ),
         Padding(
           padding: const EdgeInsets.only(bottom: defaultPadding),
           child: TextField(
@@ -93,24 +104,25 @@ class _LoginComponentState extends State<LoginComponent> {
           width: 280,
           height: 36,
           child: ElevatedButton(
-            onPressed: () {
-              authService.signInWithEmailAndPassword(
-                  emailTextController.text, passwordTextController.text);
-            },
-            style: ElevatedButton.styleFrom(
-              primary: dogeLilac,
-              shape: new RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(defaultRadius)),
+              onPressed: () async {
+                await authService.createUserWithEmailAndPassword(
+                    emailTextController.text, passwordTextController.text);
+              },
+              style: ElevatedButton.styleFrom(
+                primary: dogeLilac,
+                shape: new RoundedRectangleBorder(
+                  borderRadius:
+                  BorderRadius.all(Radius.circular(defaultRadius)),
+                ),
               ),
-            ),
-            child: Text(
-              "Login",
-              style: GoogleFonts.inter(
-                fontSize: 20,
-                color: dogeBlack,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
+              child: Text(
+                "Register",
+                style: GoogleFonts.inter(
+                  fontSize: 20,
+                  color: dogeBlack,
+                  fontWeight: FontWeight.w400,
+                ),
+              )
           ),
         ),
         SizedBox(
@@ -132,7 +144,7 @@ class _LoginComponentState extends State<LoginComponent> {
                     primary: dogeWhite,
                     shape: new RoundedRectangleBorder(
                       borderRadius:
-                          BorderRadius.all(Radius.circular(defaultRadius)),
+                      BorderRadius.all(Radius.circular(defaultRadius)),
                     ),
                   ),
                   child: Container(
@@ -198,7 +210,7 @@ class _LoginComponentState extends State<LoginComponent> {
                     primary: dogeWhite,
                     shape: new RoundedRectangleBorder(
                       borderRadius:
-                          BorderRadius.all(Radius.circular(defaultRadius)),
+                      BorderRadius.all(Radius.circular(defaultRadius)),
                     ),
                   ),
                   child: Container(
@@ -218,33 +230,6 @@ class _LoginComponentState extends State<LoginComponent> {
             ],
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Don't have an account yet?  ",
-              style: GoogleFonts.inter(
-                fontSize: 18,
-                color: dogeWhite,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/signup');
-              },
-              child: Text(
-                "Sign Up",
-                style: GoogleFonts.inter(
-                  fontSize: 18,
-                  color: dogeWhite,
-                  fontWeight: FontWeight.w700,
-                  decoration: TextDecoration.underline,
-                ),
-              ),
-            ),
-          ],
-        )
       ],
     );
   }
