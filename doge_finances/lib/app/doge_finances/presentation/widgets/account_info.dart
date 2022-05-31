@@ -4,7 +4,7 @@ import 'package:doge_finances/app/doge_finances/domain/entities/constants.dart';
 import 'package:doge_finances/app/doge_finances/domain/entities/random_bright_color.dart';
 
 class AccountInfo extends StatefulWidget {
-  const AccountInfo({Key? key}) : super(key: key);
+  const AccountInfo({Key? key,}) : super(key: key);
 
   // AccountInfo(id) {
   //

@@ -37,7 +37,7 @@ class _HomescreenState extends State<Homescreen> {
                   height: 48,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                    children: const [
                       SizedBox(
                         width: 8.0,
                       ),
@@ -54,10 +54,10 @@ class _HomescreenState extends State<Homescreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: dogeCloudy.withOpacity(0.8),
-                      borderRadius:
-                          BorderRadius.all(Radius.circular(defaultRadius)),
+                      borderRadius: const BorderRadius.all(
+                          Radius.circular(defaultRadius)),
                     ),
-                    child: BalanceComponent(),
+                    child: const BalanceComponent(),
                   ),
                 ),
               ),
@@ -65,8 +65,8 @@ class _HomescreenState extends State<Homescreen> {
                 padding: const EdgeInsets.all(2 * defaultPadding),
                 shrinkWrap: true,
                 itemCount: 3,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: largePadding,
                   mainAxisSpacing: largePadding,
@@ -76,16 +76,16 @@ class _HomescreenState extends State<Homescreen> {
               ),
               Container(
                   height: 1000,
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                     top: largePadding,
                     bottom: largePadding,
                     left: 3 * defaultPadding,
                     right: 3 * defaultPadding,
                   ),
                   decoration: BoxDecoration(
-                      borderRadius: new BorderRadius.only(
-                        topLeft: const Radius.circular(2 * defaultPadding),
-                        topRight: const Radius.circular(2 * defaultPadding),
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(2 * defaultPadding),
+                        topRight: Radius.circular(2 * defaultPadding),
                       ),
                       gradient: LinearGradient(
                           begin: Alignment.topLeft,
@@ -107,22 +107,22 @@ class _HomescreenState extends State<Homescreen> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(
+                        padding: const EdgeInsets.fromLTRB(
                             0, defaultPadding, 0, defaultPadding),
                         child: TransactionItem(),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(
+                        padding: const EdgeInsets.fromLTRB(
                             0, defaultPadding, 0, defaultPadding),
                         child: TransactionItem(),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(
+                        padding: const EdgeInsets.fromLTRB(
                             0, defaultPadding, 0, defaultPadding),
                         child: TransactionItem(),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(
+                        padding: const EdgeInsets.fromLTRB(
                             0, defaultPadding, 0, defaultPadding),
                         child: TransactionItem(),
                       ),

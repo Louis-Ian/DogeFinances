@@ -48,11 +48,11 @@ class Account {
         payment.destinationAccountID!.addPayment(payment);
       }
 
-      this._balance -= payment.value;
+      _balance -= payment.value;
     } else if (this == payment.destinationAccountID) {
       _payments.add(payment);
 
-      this._balance += payment.value;
+      _balance += payment.value;
     }
   }
 
@@ -64,12 +64,12 @@ class Account {
       }
 
       _payments.removeWhere((element) => element.id == payment.id);
-      this._balance += payment.value;
+      _balance += payment.value;
 
     } else if (this == payment.destinationAccountID) {
       _payments.removeWhere((element) => element.id == payment.id);
 
-      this._balance -= payment.value;
+      _balance -= payment.value;
     }
   }
 }
