@@ -1,12 +1,13 @@
-import 'package:doge_finances/app/doge_finances/domain/entities/transfer.dart';
 import 'package:flutter/material.dart' show Color;
 
-final String accountsTable = "accounts";
+import 'transfer.dart';
+
+const String accountsTable = "accounts";
 
 class AccountFields {
-  static final String id = "_id";
-  static final String balance = "balance";
-  static final String color = "color";
+  static const String id = "_id";
+  static const String balance = "balance";
+  static const String color = "color";
 }
 
 class Account {
