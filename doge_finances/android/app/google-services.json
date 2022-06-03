@@ -29,6 +29,13 @@
             {
               "client_id": "298047915450-chasqsev3pb0mgiphtkrslo62t2ujulu.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "298047915450-1u4v3vqupt9p7ojkblphlsd2o3e9e5ht.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hawkstudio.dogeFinances"
+              }
             }
           ]
         }
