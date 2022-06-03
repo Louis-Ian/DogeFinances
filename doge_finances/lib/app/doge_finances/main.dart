@@ -1,15 +1,13 @@
-import 'package:flutter/material.dart';
-
-import 'package:doge_finances/app/doge_finances/presentation/pages/home_screen.dart';
-import 'package:doge_finances/app/doge_finances/presentation/pages/login_screen.dart';
-import 'package:doge_finances/app/doge_finances/presentation/pages/signup_screen.dart';
-
-import 'package:doge_finances/app/doge_finances/presentation/pages/authentication_wrapper.dart';
-import 'package:doge_finances/app/doge_finances/domain/repositories/authentication_service.dart';
-
 import 'package:firebase_core/firebase_core.dart';
-import 'package:doge_finances/firebase_options.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../firebase_options.dart';
+import 'domain/repositories/authentication_service.dart';
+import 'presentation/pages/authentication_wrapper.dart';
+import 'presentation/pages/home_screen.dart';
+import 'presentation/pages/login_screen.dart';
+import 'presentation/pages/signup_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
