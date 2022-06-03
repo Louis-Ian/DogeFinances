@@ -9,7 +9,9 @@ orbs:
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  
+  flutter-version:
+    steps:
+      - run: flutter --version
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -19,3 +21,4 @@ workflows:
       - flutter/unit_test:
           app-dir: ./doge_finances/
           version: 3.0.0
+      - flutter-version:
