@@ -1,16 +1,4 @@
 import 'account.dart';
-
-final String transfersTable = "transfers";
-
-class TransferFields {
-  static final String id = "_id";
-  static final String value = "value";
-  static final String originAccountID = "originAccountID";
-  static final String destinationAccountID = "destinationAccountID";
-  static final String description = "description";
-  static final String date = "date";
-}
-
 class Transfer {
   static num _id = 0;
   num id;
