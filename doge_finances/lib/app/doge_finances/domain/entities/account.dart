@@ -1,5 +1,5 @@
 import 'package:doge_finances/app/doge_finances/domain/entities/transfer.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Color;
 
 final String accountsTable = "accounts";
 
