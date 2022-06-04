@@ -5,7 +5,7 @@ import '../../domain/entities/colors.dart';
 import '../../domain/entities/constants.dart';
 
 class AddPaymentButton extends StatefulWidget {
-  // const AddPaymentButton({Key key}) : super(key: key);
+  const AddPaymentButton({Key? key}) : super(key: key);
 
   @override
   _AddPaymentButtonState createState() => _AddPaymentButtonState();

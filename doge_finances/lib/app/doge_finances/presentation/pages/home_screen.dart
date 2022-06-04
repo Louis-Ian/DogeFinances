@@ -71,7 +71,7 @@ class _HomescreenState extends State<Homescreen> {
                   mainAxisSpacing: largePadding,
                   childAspectRatio: 160 / 90,
                 ),
-                itemBuilder: (context, index) => AccountInfo(),
+                itemBuilder: (context, index) => const AccountInfo(),
               ),
               Container(
                   height: 1000,
@@ -105,23 +105,23 @@ class _HomescreenState extends State<Homescreen> {
                           color: dogeIce,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(
                             0, defaultPadding, 0, defaultPadding),
                         child: TransactionItem(),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(
                             0, defaultPadding, 0, defaultPadding),
                         child: TransactionItem(),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(
                             0, defaultPadding, 0, defaultPadding),
                         child: TransactionItem(),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(
                             0, defaultPadding, 0, defaultPadding),
                         child: TransactionItem(),
                       ),

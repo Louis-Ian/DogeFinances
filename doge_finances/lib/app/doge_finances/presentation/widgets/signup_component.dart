@@ -53,7 +53,7 @@ class _SignupComponentState extends State<SignupComponent> {
                 maxHeight: 48,
                 maxWidth: 280,
               ),
-              contentPadding: EdgeInsets.only(left: 30),
+              contentPadding: const EdgeInsets.only(left: 30),
               filled: true,
               fillColor: dogeWhite,
               focusColor: dogeWhite,
@@ -217,7 +217,7 @@ class _SignupComponentState extends State<SignupComponent> {
                     height: 48,
                     width: 30,
                     child: const Icon(
-                      FontAwesomeIcons.solidUserCircle,
+                      FontAwesomeIcons.solidCircleUser,
                       color: dogeMidnight,
                       size: 30,
                     ),

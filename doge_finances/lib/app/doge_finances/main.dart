@@ -16,7 +16,7 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -34,10 +34,10 @@ class MyApp extends StatelessWidget {
         title: 'Doge Finances',
         initialRoute: '/',
         routes: {
-          '/': (context) => AuthenticationWrapper(),
-          '/login': (context) => Loginscreen(),
-          '/home': (context) => Homescreen(),
-          '/signup': (context) => Signupscreen(),
+          '/': (context) => const AuthenticationWrapper(),
+          '/login': (context) => const Loginscreen(),
+          '/home': (context) => const Homescreen(),
+          '/signup': (context) => const Signupscreen(),
         },
       ),
     );
