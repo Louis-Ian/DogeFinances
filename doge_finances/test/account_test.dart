@@ -34,7 +34,13 @@ void main() {
     test('New deposit', () {
       final account = Account.empty(accColor);
 
-      account.addPayment(Transfer(20, account, null, 'test expense', DateTime(2022, 1, 15)));
+      account.addPayment(Transfer(
+        value: 20,
+        originAccountID: account,
+        destinationAccountID: null,
+        description: 'test expense',
+        date: DateTime(2022, 1, 15),
+      ));
 
       expect(account.balance, -20);
       expect(account.payments.last.value, 20);
@@ -50,11 +56,7 @@ void main() {
       List<Transfer> accTransfers = List<Transfer>.empty();
       final account = Account(accBalance, accColor, accTransfers);
 
-      var expectedMap = {
-        'id': 5,
-        'balance': accBalance,
-        'color': accColor
-      };
+      var expectedMap = {'id': 5, 'balance': accBalance, 'color': accColor};
 
       expect(account.toMap(), expectedMap);
     });
@@ -64,7 +66,8 @@ void main() {
       List<Transfer> accTransfers = List<Transfer>.empty();
       final account = Account(accBalance, accColor, accTransfers);
 
-      String expectedPrint = 'Account{id: 6, balance: $accBalance, color: $accColor}';
+      String expectedPrint =
+          'Account{id: 6, balance: $accBalance, color: $accColor}';
 
       expect(account.toString(), expectedPrint);
     });
@@ -73,9 +76,27 @@ void main() {
       final accountOrig = Account.empty(accColor);
       final accountDest = Account.empty(accColor);
 
-      accountOrig.addPayment(Transfer(20, accountOrig, null, 'test transfer 1', DateTime(2022, 1, 15)));
-      accountOrig.addPayment(Transfer(30, accountOrig, accountDest, 'test transfer 2', DateTime(2022, 2, 16)));
-      accountOrig.addPayment(Transfer(40, accountOrig, accountDest, 'test transfer 3', DateTime(2022, 3, 17)));
+      accountOrig.addPayment(Transfer(
+        value: 20,
+        originAccountID: accountOrig,
+        destinationAccountID: null,
+        description: 'test transfer 1',
+        date: DateTime(2022, 1, 15),
+      ));
+      accountOrig.addPayment(Transfer(
+        value: 30,
+        originAccountID: accountOrig,
+        destinationAccountID: accountDest,
+        description: 'test transfer 2',
+        date: DateTime(2022, 2, 16),
+      ));
+      accountOrig.addPayment(Transfer(
+        value: 40,
+        originAccountID: accountOrig,
+        destinationAccountID: accountDest,
+        description: 'test transfer 3',
+        date: DateTime(2022, 3, 17),
+      ));
 
       expect(accountOrig.balance, -90);
       expect(accountOrig.payments.last.value, 40);
@@ -97,7 +118,13 @@ void main() {
     test('Remove payment', () {
       final accountOrig = Account.empty(accColor);
       final accountDest = Account.empty(accColor);
-      Transfer testPayment = Transfer(30, accountOrig, accountDest, 'test deposit', DateTime(2022, 4, 28));
+      Transfer testPayment = Transfer(
+        value: 30,
+        originAccountID: accountOrig,
+        destinationAccountID: accountDest,
+        description: 'test deposit',
+        date: DateTime(2022, 4, 28),
+      );
 
       accountOrig.addPayment(testPayment);
 

@@ -4,12 +4,6 @@ import 'transfer.dart';
 
 const String accountsTable = "accounts";
 
-class AccountFields {
-  static const String id = "_id";
-  static const String balance = "balance";
-  static const String color = "color";
-}
-
 class Account {
   static num _id = 0;
   final num id;
