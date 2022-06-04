@@ -11,6 +11,10 @@ class Account {
   final Color color;
   List<Transfer> _payments;
 
+  List<Transfer> get payments => _payments;
+
+  double get balance => _balance;
+
   Account(this._balance, this.color, this._payments) : id = _id {
     _id++;
   }
@@ -30,10 +34,6 @@ class Account {
   String toString() {
     return 'Account{id: $id, balance: $_balance, color: $color}';
   }
-
-  List<Transfer> get payments => _payments;
-
-  double get balance => _balance;
 
   void addPayment(Transfer payment) {
     if (this == payment.originAccountID) {
