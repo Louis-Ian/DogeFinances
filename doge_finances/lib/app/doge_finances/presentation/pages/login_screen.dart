@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:doge_finances/app/doge_finances/presentation/widgets/login_component.dart';
-
-import 'package:doge_finances/app/doge_finances/domain/entities/colors.dart';
-import 'package:doge_finances/app/doge_finances/domain/entities/constants.dart';
+import '../../domain/entities/colors.dart';
+import '../../domain/entities/constants.dart';
+import '../widgets/login_component.dart';
 
 class Loginscreen extends StatefulWidget {
   const Loginscreen({Key? key}) : super(key: key);
@@ -51,7 +50,7 @@ class _LoginscreenState extends State<Loginscreen> {
                         height: 460,
                         decoration: BoxDecoration(
                           color: Colors.white.withOpacity(0.2),
-                          borderRadius: BorderRadius.vertical(
+                          borderRadius: const BorderRadius.vertical(
                             top: Radius.circular(defaultRadius),
                           ),
                         ),
@@ -59,7 +58,7 @@ class _LoginscreenState extends State<Loginscreen> {
                           padding: const EdgeInsets.fromLTRB(
                               0, 2 * defaultPadding, 0, 0),
                           child: Column(
-                            children: [
+                            children: const [
                               SizedBox(
                                 height: 20,
                               ),

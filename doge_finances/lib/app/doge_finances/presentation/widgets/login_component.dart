@@ -1,10 +1,11 @@
-import 'package:doge_finances/app/doge_finances/domain/entities/constants.dart';
-import 'package:doge_finances/app/doge_finances/domain/repositories/authentication_service.dart';
-import 'package:doge_finances/app/doge_finances/domain/entities/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
+import '../../domain/entities/colors.dart';
+import '../../domain/entities/constants.dart';
+import '../../domain/repositories/authentication_service.dart';
 
 class LoginComponent extends StatefulWidget {
   const LoginComponent({Key? key}) : super(key: key);
@@ -37,11 +38,11 @@ class _LoginComponentState extends State<LoginComponent> {
                 borderSide: const BorderSide(color: dogeLilac, width: 2.0),
                 borderRadius: BorderRadius.circular(defaultRadius),
               ),
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 maxHeight: 48,
                 maxWidth: 280,
               ),
-              contentPadding: EdgeInsets.only(left: 30),
+              contentPadding: const EdgeInsets.only(left: 30),
               filled: true,
               fillColor: dogeWhite,
               focusColor: dogeWhite,
@@ -71,11 +72,11 @@ class _LoginComponentState extends State<LoginComponent> {
                 borderSide: const BorderSide(color: dogeLilac, width: 2.0),
                 borderRadius: BorderRadius.circular(defaultRadius),
               ),
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 maxHeight: 48,
                 maxWidth: 280,
               ),
-              contentPadding: EdgeInsets.only(left: 30),
+              contentPadding: const EdgeInsets.only(left: 30),
               filled: true,
               fillColor: dogeWhite,
               focusColor: dogeWhite,
@@ -99,7 +100,7 @@ class _LoginComponentState extends State<LoginComponent> {
             },
             style: ElevatedButton.styleFrom(
               primary: dogeLilac,
-              shape: new RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(defaultRadius)),
               ),
             ),
@@ -113,7 +114,7 @@ class _LoginComponentState extends State<LoginComponent> {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 3 * defaultPadding,
         ),
         SizedBox(
@@ -121,7 +122,7 @@ class _LoginComponentState extends State<LoginComponent> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 30 - defaultPadding,
               ),
               Padding(
@@ -130,7 +131,7 @@ class _LoginComponentState extends State<LoginComponent> {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     primary: dogeWhite,
-                    shape: new RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                       borderRadius:
                           BorderRadius.all(Radius.circular(defaultRadius)),
                     ),
@@ -138,7 +139,7 @@ class _LoginComponentState extends State<LoginComponent> {
                   child: Container(
                     height: 48,
                     width: 30,
-                    child: Icon(
+                    child: const Icon(
                       FontAwesomeIcons.google,
                       color: dogeMidnight,
                       size: 28,
@@ -196,7 +197,7 @@ class _LoginComponentState extends State<LoginComponent> {
                   },
                   style: ElevatedButton.styleFrom(
                     primary: dogeWhite,
-                    shape: new RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                       borderRadius:
                           BorderRadius.all(Radius.circular(defaultRadius)),
                     ),
@@ -204,15 +205,15 @@ class _LoginComponentState extends State<LoginComponent> {
                   child: Container(
                     height: 48,
                     width: 30,
-                    child: Icon(
-                      FontAwesomeIcons.solidUserCircle,
+                    child: const Icon(
+                      FontAwesomeIcons.solidCircleUser,
                       color: dogeMidnight,
                       size: 30,
                     ),
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 30 - defaultPadding,
               ),
             ],

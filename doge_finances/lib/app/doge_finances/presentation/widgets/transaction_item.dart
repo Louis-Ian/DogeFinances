@@ -1,10 +1,11 @@
-import 'package:doge_finances/app/doge_finances/domain/entities/constants.dart';
-import 'package:doge_finances/app/doge_finances/domain/entities/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../domain/entities/colors.dart';
+import '../../domain/entities/constants.dart';
+
 class TransactionItem extends StatefulWidget {
-  // const TransactionItem({Key? key}) : super(key: key);
+  const TransactionItem({Key? key}) : super(key: key);
 
   @override
   _TransactionItemState createState() => _TransactionItemState();
@@ -14,10 +15,10 @@ class _TransactionItemState extends State<TransactionItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(defaultPadding),
+        padding: const EdgeInsets.all(defaultPadding),
         decoration: BoxDecoration(
             color: dogeBlack.withOpacity(0.2),
-            borderRadius: BorderRadius.all(Radius.circular(defaultRadius))),
+            borderRadius: const BorderRadius.all(Radius.circular(defaultRadius))),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.max,
@@ -30,7 +31,7 @@ class _TransactionItemState extends State<TransactionItem> {
             Expanded(
               child: Padding(
                 padding:
-                    EdgeInsets.fromLTRB(defaultPadding, 0, defaultPadding, 0),
+                    const EdgeInsets.fromLTRB(defaultPadding, 0, defaultPadding, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

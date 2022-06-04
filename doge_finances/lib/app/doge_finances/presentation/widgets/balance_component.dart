@@ -1,9 +1,9 @@
-import 'package:doge_finances/app/doge_finances/domain/entities/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:doge_finances/app/doge_finances/domain/entities/constants.dart';
+import '../../domain/entities/colors.dart';
+import '../../domain/entities/constants.dart';
 
 class BalanceComponent extends StatefulWidget {
   const BalanceComponent({Key? key}) : super(key: key);

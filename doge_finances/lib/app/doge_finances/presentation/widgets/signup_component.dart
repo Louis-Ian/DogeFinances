@@ -1,10 +1,11 @@
-import 'package:doge_finances/app/doge_finances/domain/entities/constants.dart';
-import 'package:doge_finances/app/doge_finances/domain/repositories/authentication_service.dart';
-import 'package:doge_finances/app/doge_finances/domain/entities/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
+import '../../domain/entities/colors.dart';
+import '../../domain/entities/constants.dart';
+import '../../domain/repositories/authentication_service.dart';
 
 class SignupComponent extends StatefulWidget {
   const SignupComponent({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _SignupComponentState extends State<SignupComponent> {
   Widget build(BuildContext context) {
     final TextEditingController emailTextController = TextEditingController();
     final TextEditingController passwordTextController =
-    TextEditingController();
+        TextEditingController();
 
     final authService = Provider.of<AuthenticationService>(context);
 
@@ -32,7 +33,7 @@ class _SignupComponentState extends State<SignupComponent> {
             fontWeight: FontWeight.w700,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 3 * defaultPadding,
         ),
         Padding(
@@ -48,7 +49,7 @@ class _SignupComponentState extends State<SignupComponent> {
                 borderSide: const BorderSide(color: dogeLilac, width: 2.0),
                 borderRadius: BorderRadius.circular(defaultRadius),
               ),
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 maxHeight: 48,
                 maxWidth: 280,
               ),
@@ -82,11 +83,11 @@ class _SignupComponentState extends State<SignupComponent> {
                 borderSide: const BorderSide(color: dogeLilac, width: 2.0),
                 borderRadius: BorderRadius.circular(defaultRadius),
               ),
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 maxHeight: 48,
                 maxWidth: 280,
               ),
-              contentPadding: EdgeInsets.only(left: 30),
+              contentPadding: const EdgeInsets.only(left: 30),
               filled: true,
               fillColor: dogeWhite,
               focusColor: dogeWhite,
@@ -110,9 +111,9 @@ class _SignupComponentState extends State<SignupComponent> {
               },
               style: ElevatedButton.styleFrom(
                 primary: dogeLilac,
-                shape: new RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   borderRadius:
-                  BorderRadius.all(Radius.circular(defaultRadius)),
+                      BorderRadius.all(Radius.circular(defaultRadius)),
                 ),
               ),
               child: Text(
@@ -122,10 +123,9 @@ class _SignupComponentState extends State<SignupComponent> {
                   color: dogeBlack,
                   fontWeight: FontWeight.w400,
                 ),
-              )
-          ),
+              )),
         ),
-        SizedBox(
+        const SizedBox(
           height: 3 * defaultPadding,
         ),
         SizedBox(
@@ -133,7 +133,7 @@ class _SignupComponentState extends State<SignupComponent> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 30 - defaultPadding,
               ),
               Padding(
@@ -142,15 +142,15 @@ class _SignupComponentState extends State<SignupComponent> {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     primary: dogeWhite,
-                    shape: new RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                       borderRadius:
-                      BorderRadius.all(Radius.circular(defaultRadius)),
+                          BorderRadius.all(Radius.circular(defaultRadius)),
                     ),
                   ),
                   child: Container(
                     height: 48,
                     width: 30,
-                    child: Icon(
+                    child: const Icon(
                       FontAwesomeIcons.google,
                       color: dogeMidnight,
                       size: 28,
@@ -208,15 +208,15 @@ class _SignupComponentState extends State<SignupComponent> {
                   },
                   style: ElevatedButton.styleFrom(
                     primary: dogeWhite,
-                    shape: new RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                       borderRadius:
-                      BorderRadius.all(Radius.circular(defaultRadius)),
+                          BorderRadius.all(Radius.circular(defaultRadius)),
                     ),
                   ),
                   child: Container(
                     height: 48,
                     width: 30,
-                    child: Icon(
+                    child: const Icon(
                       FontAwesomeIcons.solidUserCircle,
                       color: dogeMidnight,
                       size: 30,
@@ -224,7 +224,7 @@ class _SignupComponentState extends State<SignupComponent> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 30 - defaultPadding,
               ),
             ],

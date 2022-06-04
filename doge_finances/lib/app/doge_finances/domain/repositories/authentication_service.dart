@@ -8,21 +8,25 @@ class AuthenticationService {
     return _firebaseAuth.authStateChanges();
   }
 
-  Future<User?> signInWithEmailAndPassword(String email, String password) async {
+  Future<User?> signInWithEmailAndPassword(
+      String email, String password) async {
     try {
-      final credential = await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
+      final credential = await _firebaseAuth.signInWithEmailAndPassword(
+          email: email, password: password);
       return credential.user;
-    } on auth.FirebaseAuthException catch(e) {
+    } on auth.FirebaseAuthException catch (e) {
       // TODO: treat exceptions
       return null;
     }
   }
 
-  Future<User?> createUserWithEmailAndPassword(String email, String password) async {
+  Future<User?> createUserWithEmailAndPassword(
+      String email, String password) async {
     try {
-      final credential = await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+      final credential = await _firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
       return credential.user;
-    } on auth.FirebaseAuthException catch(e) {
+    } on auth.FirebaseAuthException catch (e) {
       // TODO: treat exceptions
       return null;
     }

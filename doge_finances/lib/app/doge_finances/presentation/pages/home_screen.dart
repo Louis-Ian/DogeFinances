@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:doge_finances/app/doge_finances/domain/entities/constants.dart';
-import 'package:doge_finances/app/doge_finances/domain/entities/colors.dart';
-
-import 'package:doge_finances/app/doge_finances/presentation/widgets/account_info.dart';
-import 'package:doge_finances/app/doge_finances/presentation/widgets/add_payment_button.dart';
-import 'package:doge_finances/app/doge_finances/presentation/widgets/balance_component.dart';
-import 'package:doge_finances/app/doge_finances/presentation/widgets/transaction_item.dart';
-import 'package:doge_finances/app/doge_finances/presentation/widgets/user_icon.dart';
+import '../../domain/entities/colors.dart';
+import '../../domain/entities/constants.dart';
+import '../widgets/account_info.dart';
+import '../widgets/add_payment_button.dart';
+import '../widgets/balance_component.dart';
+import '../widgets/transaction_item.dart';
+import '../widgets/user_icon.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({Key? key}) : super(key: key);

@@ -1,7 +1,8 @@
-import 'package:doge_finances/app/doge_finances/presentation/widgets/signup_component.dart';
 import 'package:flutter/material.dart';
-import 'package:doge_finances/app/doge_finances/domain/entities/colors.dart';
-import 'package:doge_finances/app/doge_finances/domain/entities/constants.dart';
+
+import '../../domain/entities/colors.dart';
+import '../../domain/entities/constants.dart';
+import '../widgets/signup_component.dart';
 
 class Signupscreen extends StatefulWidget {
   const Signupscreen({Key? key}) : super(key: key);
@@ -48,13 +49,13 @@ class _SignupscreenState extends State<Signupscreen> {
                       height: 480,
                       decoration: BoxDecoration(
                           color: Colors.white.withOpacity(0.2),
-                          borderRadius: BorderRadius.vertical(
+                          borderRadius: const BorderRadius.vertical(
                               top: Radius.circular(defaultRadius))),
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(
                             0, 2 * defaultPadding, 0, 0),
                         child: Column(
-                          children: [
+                          children: const [
                             SignupComponent(),
                           ],
                         ),
