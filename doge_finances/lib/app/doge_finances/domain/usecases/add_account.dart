@@ -9,7 +9,7 @@ class AddAccount {
 
   AddAccount(this.repository);
 
-  Future<Either<Failure, int>> execute({required Account account}) async {
+  Future<Either<Failure, int>> call({required Account account}) async {
     return await repository.addAccount(account);
   }
 }

@@ -31,7 +31,7 @@ void main() {
               .thenAnswer((_) async => Right(emptyAccount.id as int));
 
           // Act
-          final result = await usecase.execute(account: emptyAccount);
+          final result = await usecase(account: emptyAccount);
 
           // Assert
           expect(result, Right(emptyAccount.id as int));
@@ -63,7 +63,7 @@ void main() {
               .thenAnswer((_) async => Right(testAccount.id as int));
 
           // Act
-          final result = await usecase.execute(account: testAccount);
+          final result = await usecase(account: testAccount);
 
           // Assert
           expect(result, Right(testAccount.id as int));
