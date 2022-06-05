@@ -14,12 +14,11 @@ import 'delete_account_test.mocks.dart';
 @GenerateMocks([AccountsRepository])
 void main() {
   DeleteAccount usecase;
-  MockAccountsRepository repository;
   group(
     'Delete Account',
     () {
       const accColor = Colors.white;
-      repository = MockAccountsRepository();
+      MockAccountsRepository repository = MockAccountsRepository();
       usecase = DeleteAccount(repository);
 
       test(
@@ -40,7 +39,6 @@ void main() {
           verifyNoMoreInteractions(repository);
         },
       );
-
 
       test(
         'Delete account with some expenses registered',

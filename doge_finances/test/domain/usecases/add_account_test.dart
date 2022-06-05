@@ -8,17 +8,17 @@ import 'package:doge_finances/app/doge_finances/domain/entities/account.dart';
 import 'package:doge_finances/app/doge_finances/domain/entities/transfer.dart';
 import 'package:doge_finances/app/doge_finances/domain/repositories/account_repository.dart';
 import 'package:doge_finances/app/doge_finances/domain/usecases/add_account.dart';
+
 import 'add_account_test.mocks.dart';
 
 @GenerateMocks([AccountsRepository])
 void main() {
-  MockAccountsRepository repository;
 
   group(
     'Add account',
     () {
-      const accColor = Colors.white;
-      repository = MockAccountsRepository();
+      const accColor = Colors.white;  
+      MockAccountsRepository repository = MockAccountsRepository();
       AddAccount usecase = AddAccount(repository);
 
       test(
