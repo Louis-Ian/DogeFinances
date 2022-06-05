@@ -2,8 +2,6 @@ import 'package:flutter/material.dart' show Color;
 
 import 'transfer.dart';
 
-const String accountsTable = "accounts";
-
 class Account {
   static num _id = 0;
   final num id;
