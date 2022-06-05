@@ -10,6 +10,6 @@ class DeleteAccount {
   DeleteAccount(this.repository);
 
   Future<Either<Failure, int>> execute({required Account account}) async {
-    return await repository.addAccount(account);
+    return await repository.deleteAccount(account);
   }
 }
