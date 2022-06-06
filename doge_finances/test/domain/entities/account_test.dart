@@ -16,7 +16,7 @@ void main() {
     });
 
     test('Creation', () {
-      final account = Account(100, accColor, List<Transfer>.empty());
+      final account = Account('Account', 100, accColor, List<Transfer>.empty());
 
       expect(account.balance, 100);
       expect(account.color, accColor);
@@ -52,22 +52,30 @@ void main() {
     });
 
     test('Mapping account', () {
+      String accTitle = 'Account Mapped';
       double accBalance = 42;
       List<Transfer> accTransfers = List<Transfer>.empty();
-      final account = Account(accBalance, accColor, accTransfers);
+      final account = Account(accTitle, accBalance, accColor, accTransfers);
 
-      var expectedMap = {'id': 5, 'balance': accBalance, 'color': accColor};
+      var expectedMap = {
+        'id': 5,
+        'title': accTitle,
+        'balance': accBalance,
+        'color': accColor
+      };
 
       expect(account.toMap(), expectedMap);
     });
 
     test('Print account', () {
+      String accTitle = 'Account Printed';
       double accBalance = -66.6;
       List<Transfer> accTransfers = List<Transfer>.empty();
-      final account = Account(accBalance, accColor, accTransfers);
+      final account =
+          Account(accTitle, accBalance, accColor, accTransfers);
 
       String expectedPrint =
-          'Account{id: 6, balance: $accBalance, color: $accColor}';
+          'Account{id: 6, title: $accTitle, balance: $accBalance, color: $accColor}';
 
       expect(account.toString(), expectedPrint);
     });

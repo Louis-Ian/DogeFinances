@@ -42,7 +42,7 @@ void main() {
         'Get list with 1 account',
         () async {
           // Arrange
-          Account testAccount = Account(200, accColor, []);
+          Account testAccount = Account('Account 1', 200, accColor, []);
           testAccount.addPayment(Transfer(
               value: 20,
               originAccountID: testAccount,
@@ -79,7 +79,7 @@ void main() {
 
           for (var i = 0; i < 10; i++) {
             // Create account with new id
-            Account testAccount = Account(200, accColor, []);
+            Account testAccount = Account('Account $i', 200, accColor, []);
             testAccount.addPayment(Transfer(
                 value: 20,
                 originAccountID: testAccount,
@@ -110,6 +110,7 @@ void main() {
 
           List<Account> resultList = (result as Right).value;
           expect(resultList[9].id, 10);
+          expect(resultList.length, 10);
         },
       );
     },

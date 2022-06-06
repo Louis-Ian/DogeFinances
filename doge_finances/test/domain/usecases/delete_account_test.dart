@@ -25,7 +25,7 @@ void main() {
         'Delete existing empty account',
         () async {
           // Arrange
-          Account emptyAccount = Account(0, accColor, []);
+          Account emptyAccount = Account('Account empty', 0, accColor, []);
 
           when(repository.deleteAccount(any))
               .thenAnswer((_) async => Right(emptyAccount.id as int));
@@ -44,7 +44,7 @@ void main() {
         'Delete account with some expenses registered',
         () async {
           // Arrange
-          Account testAccount = Account(100, accColor, []);
+          Account testAccount = Account('Account not empty', 100, accColor, []);
           testAccount.addPayment(Transfer(
               value: 10,
               originAccountID: testAccount,

@@ -25,7 +25,7 @@ void main() {
         'Add empty account',
         () async {
           // Arrange
-          Account emptyAccount = Account(0, accColor, []);
+          Account emptyAccount = Account('Empty Account', 0, accColor, []);
 
           when(repository.addAccount(any))
               .thenAnswer((_) async => Right(emptyAccount.id as int));
@@ -44,7 +44,7 @@ void main() {
         'Add account with some expenses registered',
         () async {
           // Arrange
-          Account testAccount = Account(200, accColor, []);
+          Account testAccount = Account('Account 1', 200, accColor, []);
           testAccount.addPayment(Transfer(
               value: 20,
               originAccountID: testAccount,
