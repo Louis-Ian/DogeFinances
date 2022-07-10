@@ -21,8 +21,8 @@ class _HomescreenState extends State<Homescreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: dogeMidnight,
-      floatingActionButton: Padding(
-          padding: const EdgeInsets.fromLTRB(
+      floatingActionButton: const Padding(
+          padding: EdgeInsets.fromLTRB(
               0, 0, defaultPadding, 2 * defaultPadding),
           child: AddPaymentButton()),
       body: SafeArea(
@@ -32,6 +32,7 @@ class _HomescreenState extends State<Homescreen> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(
                     2 * defaultPadding, defaultPadding, 2 * defaultPadding, 0),
+                // ignore: sized_box_for_whitespace
                 child: Container(
                   height: 48,
                   child: Row(
