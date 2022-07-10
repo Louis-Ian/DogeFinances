@@ -1,9 +1,9 @@
-import 'package:doge_finances/app/doge_finances/domain/repositories/authentication_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'package:doge_finances/app/doge_finances/domain/entities/colors.dart';
 import 'package:provider/provider.dart';
+
+import '../../domain/entities/colors.dart';
+import '../../domain/repositories/authentication_service.dart';
 
 class UserIcon extends StatelessWidget {
   const UserIcon({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class UserIcon extends StatelessWidget {
     return Container(
       height: 48,
       width: 48,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: dogeCloudy,
         borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
@@ -23,8 +23,8 @@ class UserIcon extends StatelessWidget {
         onPressed: () {
           authService.signOut();
         },
-        padding: EdgeInsets.only(bottom: 3),
-        icon: Icon(
+        padding: const EdgeInsets.only(bottom: 3),
+        icon: const Icon(
           FontAwesomeIcons.solidUser,
           size: 34,
           color: dogeLilac,

@@ -1,5 +1,8 @@
 # VS Code files
 /.vscode/
+
+# Signing keys and files
+# Keep them secret
 doge_finances/android/upload-keystore.jks
 doge_finances/signing_keystore_base64_encoded.txt
 

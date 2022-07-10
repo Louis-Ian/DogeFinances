@@ -1,44 +1,39 @@
-import 'package:doge_finances/app/doge_finances/domain/entities/transfer.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Color;
 
-final String accountsTable = "accounts";
-
-class AccountFields {
-  static final String id = "_id";
-  static final String balance = "balance";
-  static final String color = "color";
-}
+import 'transfer.dart';
 
 class Account {
   static num _id = 0;
+  String title;
   final num id;
   double _balance;
   final Color color;
   List<Transfer> _payments;
 
-  Account(this._balance, this.color, this._payments) : id = _id {
+  List<Transfer> get payments => _payments;
+
+  double get balance => _balance;
+
+  Account(this.title, this._balance, this.color, this._payments) : id = _id {
     _id++;
   }
 
   Account.empty(this.color)
-      : _balance = 0,
+      : title = 'Account',
+        _balance = 0,
         _payments = [],
         id = _id {
     _id++;
   }
 
   Map<String, dynamic> toMap() {
-    return {'id': id, 'balance': _balance, 'color': color};
+    return {'id': id, 'title': title, 'balance': _balance, 'color': color};
   }
 
   @override
   String toString() {
-    return 'Account{id: $id, balance: $_balance, color: $color}';
+    return 'Account{id: $id, title: $title, balance: $_balance, color: $color}';
   }
-
-  List<Transfer> get payments => _payments;
-
-  double get balance => _balance;
 
   void addPayment(Transfer payment) {
     if (this == payment.originAccountID) {
@@ -65,7 +60,6 @@ class Account {
 
       _payments.removeWhere((element) => element.id == payment.id);
       _balance += payment.value;
-
     } else if (this == payment.destinationAccountID) {
       _payments.removeWhere((element) => element.id == payment.id);
 

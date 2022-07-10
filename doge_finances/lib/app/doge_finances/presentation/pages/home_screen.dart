@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:doge_finances/app/doge_finances/domain/entities/constants.dart';
-import 'package:doge_finances/app/doge_finances/domain/entities/colors.dart';
-
-import 'package:doge_finances/app/doge_finances/presentation/widgets/account_info.dart';
-import 'package:doge_finances/app/doge_finances/presentation/widgets/add_payment_button.dart';
-import 'package:doge_finances/app/doge_finances/presentation/widgets/balance_component.dart';
-import 'package:doge_finances/app/doge_finances/presentation/widgets/transaction_item.dart';
-import 'package:doge_finances/app/doge_finances/presentation/widgets/user_icon.dart';
+import '../../domain/entities/colors.dart';
+import '../../domain/entities/constants.dart';
+import '../widgets/account_info.dart';
+import '../widgets/add_payment_button.dart';
+import '../widgets/balance_component.dart';
+import '../widgets/transaction_item.dart';
+import '../widgets/user_icon.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({Key? key}) : super(key: key);
@@ -22,8 +21,8 @@ class _HomescreenState extends State<Homescreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: dogeMidnight,
-      floatingActionButton: Padding(
-          padding: const EdgeInsets.fromLTRB(
+      floatingActionButton: const Padding(
+          padding: EdgeInsets.fromLTRB(
               0, 0, defaultPadding, 2 * defaultPadding),
           child: AddPaymentButton()),
       body: SafeArea(
@@ -33,6 +32,7 @@ class _HomescreenState extends State<Homescreen> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(
                     2 * defaultPadding, defaultPadding, 2 * defaultPadding, 0),
+                // ignore: sized_box_for_whitespace
                 child: Container(
                   height: 48,
                   child: Row(
@@ -72,7 +72,7 @@ class _HomescreenState extends State<Homescreen> {
                   mainAxisSpacing: largePadding,
                   childAspectRatio: 160 / 90,
                 ),
-                itemBuilder: (context, index) => AccountInfo(),
+                itemBuilder: (context, index) => const AccountInfo(),
               ),
               Container(
                   height: 1000,
@@ -106,23 +106,23 @@ class _HomescreenState extends State<Homescreen> {
                           color: dogeIce,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(
                             0, defaultPadding, 0, defaultPadding),
                         child: TransactionItem(),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(
                             0, defaultPadding, 0, defaultPadding),
                         child: TransactionItem(),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(
                             0, defaultPadding, 0, defaultPadding),
                         child: TransactionItem(),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(
                             0, defaultPadding, 0, defaultPadding),
                         child: TransactionItem(),
                       ),
